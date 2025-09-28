@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, Mountain, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
+import { RotatingLogo } from "./rotating-logo";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -30,6 +31,14 @@ export function Header() {
 
   const closeSheet = () => setSheetOpen(false);
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (isSheetOpen) {
+      closeSheet();
+    }
+  };
+
   return (
     <header
       className={cn(
@@ -40,8 +49,14 @@ export function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-          <Mountain className="h-6 w-6 text-primary" />
+        <Link
+          href="/"
+          onClick={handleLogoClick}
+          className="flex items-center gap-2 font-bold text-lg"
+        >
+          <div className="w-8 h-8">
+            <RotatingLogo />
+          </div>
           <span className="font-headline">Mushangi's Vision</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
@@ -67,10 +82,12 @@ export function Header() {
               <div className="flex flex-col gap-6 p-6">
                 <Link
                   href="/"
+                  onClick={handleLogoClick}
                   className="flex items-center gap-2 font-bold text-lg"
-                  onClick={closeSheet}
                 >
-                  <Mountain className="h-6 w-6 text-primary" />
+                   <div className="w-8 h-8">
+                     <RotatingLogo />
+                   </div>
                   <span className="font-headline">Mushangi's Vision</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
