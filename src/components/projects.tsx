@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
+
 
 const projects = [
   {
@@ -55,7 +57,12 @@ export function Projects() {
         </p>
       </div>
 
-      <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+      <Carousel className="w-full" opts={{ align: "start", loop: true }}
+       plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}>
         <CarouselContent>
           {projects.map((project) => (
             <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
@@ -63,7 +70,13 @@ export function Projects() {
                 <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl">
                   <CardHeader>
                     {project.imageUrls && project.imageUrls.length > 0 && (
-                      <Carousel className="w-full" opts={{ loop: true }}>
+                      <Carousel className="w-full" opts={{ loop: true }}
+                      plugins={[
+                        Autoplay({
+                          delay: 5000,
+                          stopOnInteraction: true,
+                        }),
+                      ]}>
                         <CarouselContent>
                           {project.imageUrls.map((url, index) => (
                             <CarouselItem key={index}>
