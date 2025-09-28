@@ -60,7 +60,7 @@ export function Projects() {
         </p>
       </div>
 
-      <Carousel className="w-full" opts={{ align: "start", loop: true }}
+      <Carousel className="w-full" opts={{ align: "start", loop: projects.length > 2 }}
        plugins={[
         Autoplay({
           delay: 3000,
@@ -97,8 +97,8 @@ export function Projects() {
                         </CarouselContent>
                         {project.imageUrls.length > 1 && (
                           <>
-                            <CarouselPrevious className="absolute left-4" />
-                            <CarouselNext className="absolute right-4" />
+                            <CarouselPrevious />
+                            <CarouselNext />
                           </>
                         )}
                       </Carousel>
@@ -130,8 +130,8 @@ export function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="ml-12" />
-        <CarouselNext className="mr-12" />
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </Section>
   );
