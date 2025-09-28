@@ -37,6 +37,16 @@ const projects = [
     githubUrl: "#",
   },
   {
+    id: "project-4",
+    title: "Game App",
+    description: "An interactive game application with engaging UI and real-time features.",
+    tags: ["React Native", "Firebase", "Lottie"],
+    imageUrls: ["/ecommerce-laptop.png"],
+    imageHints: ["game app"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
     id: "project-3",
     title: "Data Analytics Dashboard",
     description: "An interactive dashboard for visualizing complex datasets, featuring customizable charts and real-time data updates.",
