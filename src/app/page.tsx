@@ -1,3 +1,27 @@
+import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { Projects } from "@/components/projects";
+import { Skills } from "@/components/skills";
+import { Resume } from "@/components/resume";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
+import { BlogSection } from "@/components/blog-section";
+
 export default function Home() {
-  return <></>;
+  return (
+    <div className="flex flex-col min-h-dvh bg-background text-foreground">
+      <Header />
+      <main className="flex-1">
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Resume />
+        <BlogSection />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
 }

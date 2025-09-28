@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "mushangi-profile",
+      "description": "Profile picture of Mushangi",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NTkwMzU5Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "project-1",
+      "description": "Screenshot of Project 1",
+      "imageUrl": "https://images.unsplash.com/photo-1487014679447-9f8336841d58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3ZWIlMjBhcHBsaWNhdGlvbnxlbnwwfHx8fDE3NTg5ODkxMjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "web application"
+    },
+    {
+      "id": "project-2",
+      "description": "Screenshot of Project 2",
+      "imageUrl": "https://images.unsplash.com/photo-1551650975-87deedd944c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2JpbGUlMjBhcHB8ZW58MHx8fHwxNzU5MDM4NjI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mobile app"
+    },
+    {
+      "id": "project-3",
+      "description": "Screenshot of Project 3",
+      "imageUrl": "https://images.unsplash.com/photo-1599658880436-c61792e70672?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxkYXRhJTIwZGFzaGJvYXJkfGVufDB8fHx8MTc1OTA3MDY3MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data dashboard"
+    },
+    {
+      "id": "blog-post-1",
+      "description": "Header image for a blog post on React Hooks",
+      "imageUrl": "https://images.unsplash.com/photo-1555680510-34daedadbdb1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2RlJTIwYWJzdHJhY3R8ZW58MHx8fHwxNzU5MDI2MDQ0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code abstract"
+    },
+    {
+      "id": "blog-post-2",
+      "description": "Header image for a blog post on web performance",
+      "imageUrl": "https://images.unsplash.com/photo-1599580546799-0a769ea465cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx0ZWNobm9sb2d5JTIwc3BlZWR8ZW58MHx8fHwxNzU5MDcwNjcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technology speed"
+    }
+  ]
 }
