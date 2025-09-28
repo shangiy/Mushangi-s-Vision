@@ -1,10 +1,5 @@
 import Image from "next/image";
 import { Section } from "@/components/section";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-
-const profileImage = PlaceHolderImages.find(
-  (img) => img.id === "mushangi-profile"
-);
 
 export function About() {
   return (
@@ -22,16 +17,13 @@ export function About() {
           </p>
         </div>
         <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
-          {profileImage && (
-             <Image
-              src={profileImage.imageUrl}
-              alt={profileImage.description}
-              width={400}
-              height={400}
-              className="rounded-full object-cover aspect-square shadow-lg border-4 border-background"
-              data-ai-hint={profileImage.imageHint}
-            />
-          )}
+           <Image
+            src="/about-image.png"
+            alt="About me"
+            width={400}
+            height={400}
+            className="rounded-full object-cover aspect-square shadow-lg border-4 border-background"
+          />
         </div>
       </div>
     </Section>
