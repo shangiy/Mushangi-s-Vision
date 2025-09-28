@@ -14,7 +14,7 @@ export function Hero() {
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="animate-in fade-in slide-in-from-left-12 duration-1000 text-center md:text-left">
             <div className="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm mb-4">
-              <LocateIcon className="mr-2 h-4 w-4" /> Based in Your City, World
+              <LocateIcon className="mr-2 h-4 w-4" /> Nairobi, Kenya
             </div>
             <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl">
               Mushangi P portfolio
