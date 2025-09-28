@@ -23,7 +23,7 @@ export function Footer() {
             </Link>
           </Button>
           <Button asChild variant="ghost" size="icon">
-            <Link href="https://github.com" target="_blank">
+            <Link href="https://github.com/shangiy" target="_blank">
               <Github className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </Link>
