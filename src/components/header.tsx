@@ -57,7 +57,7 @@ export function Header() {
           <div className="w-8 h-8">
             <RotatingLogo />
           </div>
-          <span className="font-headline">Mushangi's Vision</span>
+          <span className="font-headline">Mushangi P portfolio</span>
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
@@ -88,7 +88,7 @@ export function Header() {
                    <div className="w-8 h-8">
                      <RotatingLogo />
                    </div>
-                  <span className="font-headline">Mushangi's Vision</span>
+                  <span className="font-headline">Mushangi P portfolio</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (

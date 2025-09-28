@@ -17,7 +17,7 @@ export function Hero() {
               <LocateIcon className="mr-2 h-4 w-4" /> Based in Your City, World
             </div>
             <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl">
-              Mushangi's Vision
+              Mushangi P portfolio
             </h1>
             <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl md:mx-0">
               A creative developer crafting beautiful and functional web
