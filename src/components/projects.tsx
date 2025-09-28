@@ -28,7 +28,7 @@ const projects = [
   },
   {
     id: "project-2",
-    title: "Task Management App",
+    title: "Banking Mobile-App",
     description: "A collaborative tool for teams to organize tasks, set deadlines, and track progress with an intuitive drag-and-drop interface.",
     tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
     imageUrls: ["/ecommerce-laptop.png"],
