@@ -58,13 +58,13 @@ const projects = [
   },
   {
     id: "project-5",
-    title: "New Project",
-    description: "A description for the new project.",
-    tags: ["React", "Node.js"],
+    title: "Parms Xclusive Cars Ltd System",
+    description: "Developed a parmsXclusive cars ltd website that allows user and customer to look for their preferred car either to buy or trade-in with an existing car.",
+    tags: ["PHP", "MySQL", "HTML/CSS"],
     imageUrls: ["https://picsum.photos/seed/5/600/400"],
-    imageHints: ["new project"],
-    liveUrl: "#",
-    githubUrl: "#",
+    imageHints: ["car dealership", "website"],
+    liveUrl: "https://shangiy.github.io/p5/",
+    githubUrl: "https://shangiy.github.io/p5/",
   },
 ];
 
@@ -130,7 +130,7 @@ export function Projects() {
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col">
                     <CardDescription className="flex-grow">{project.description}
-                     {(project.id === 'project-1' || project.id === 'project-3') && project.liveUrl !== '#' && (
+                     {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-5') && project.liveUrl !== '#' && (
                         <p className="mt-2 text-sm break-all">
                             <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                                 {project.liveUrl}
