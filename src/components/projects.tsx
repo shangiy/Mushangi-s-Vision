@@ -120,6 +120,13 @@ export function Projects() {
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col">
                     <CardDescription className="flex-grow">{project.description}
+                     {project.id === 'project-1' && (
+                        <p className="mt-2 text-sm">
+                            <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                                {project.liveUrl}
+                            </Link>
+                        </p>
+                      )}
                     </CardDescription>
                      <div className="flex gap-2 mt-4">
                         <Button asChild variant="outline" size="sm">
