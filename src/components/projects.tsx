@@ -23,7 +23,7 @@ const projects = [
       "/alpha-Admin-Dashboard.png",
     ],
     imageHints: ["ecommerce system", "ecommerce laptop", "admin dashboard"],
-    liveUrl: "#",
+    liveUrl: "https://6000-firebase-studio-1751840259148.cluster-jbb3mjctu5cbgsi6hwq6u4btwe.cloudworkstations.dev/",
     githubUrl: "#",
   },
   {
@@ -120,13 +120,6 @@ export function Projects() {
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col">
                     <CardDescription className="flex-grow">{project.description}
-                    {project.id === "project-1" && (
-                        <p className="mt-2 text-sm text-muted-foreground">
-                            <Link href="https://6000-firebase-studio-1751840259148.cluster-jbb3mjctu5cbgsi6hwq6u4btwe.cloudworkstations.dev/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                                View a live example
-                            </Link>
-                        </p>
-                    )}
                     </CardDescription>
                      <div className="flex gap-2 mt-4">
                         <Button asChild variant="outline" size="sm">
@@ -148,8 +141,8 @@ export function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
-        <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </Section>
   );
