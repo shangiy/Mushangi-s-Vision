@@ -56,6 +56,16 @@ const projects = [
     liveUrl: "https://shangiy.github.io/colourGen.0/",
     githubUrl: "#",
   },
+  {
+    id: "project-5",
+    title: "New Project",
+    description: "A description for the new project.",
+    tags: ["React", "Node.js"],
+    imageUrls: ["https://picsum.photos/seed/5/600/400"],
+    imageHints: ["new project"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
 ];
 
 export function Projects() {
