@@ -53,7 +53,7 @@ const projects = [
     tags: ["HTML5", "Canvas", "JavaScript"],
     imageUrls: ["https://picsum.photos/seed/3/600/400"],
     imageHints: ["data dashboard"],
-    liveUrl: "#",
+    liveUrl: "https://shangiy.github.io/colourGen.0/",
     githubUrl: "#",
   },
 ];
@@ -120,8 +120,8 @@ export function Projects() {
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col">
                     <CardDescription className="flex-grow">{project.description}
-                     {project.id === 'project-1' && (
-                        <p className="mt-2 text-sm">
+                     {(project.id === 'project-1' || project.id === 'project-3') && project.liveUrl !== '#' && (
+                        <p className="mt-2 text-sm break-all">
                             <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                                 {project.liveUrl}
                             </Link>
