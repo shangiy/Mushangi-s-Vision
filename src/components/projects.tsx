@@ -119,7 +119,15 @@ export function Projects() {
                     </div>
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col">
-                    <CardDescription className="flex-grow">{project.description}</CardDescription>
+                    <CardDescription className="flex-grow">{project.description}
+                    {project.id === "project-1" && (
+                        <p className="mt-2 text-sm text-muted-foreground">
+                            <Link href="https://6000-firebase-studio-1751840259148.cluster-jbb3mjctu5cbgsi6hwq6u4btwe.cloudworkstations.dev/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                                View a live example
+                            </Link>
+                        </p>
+                    )}
+                    </CardDescription>
                      <div className="flex gap-2 mt-4">
                         <Button asChild variant="outline" size="sm">
                           <Link href={project.githubUrl} target="_blank">
