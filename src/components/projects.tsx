@@ -3,7 +3,6 @@ import { Section } from "@/components/section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "./ui/button";
 import { Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
@@ -14,6 +13,8 @@ const projects = [
     title: "E-Commerce Platform",
     description: "A full-featured online store with a modern UI, product management, and a secure checkout process.",
     tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+    imageUrl: "/e-commerce-system.png",
+    imageHint: "ecommerce system",
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -22,6 +23,8 @@ const projects = [
     title: "Task Management App",
     description: "A collaborative tool for teams to organize tasks, set deadlines, and track progress with an intuitive drag-and-drop interface.",
     tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
+    imageUrl: "/ecommerce-laptop.png",
+    imageHint: "ecommerce laptop",
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -30,6 +33,8 @@ const projects = [
     title: "Data Analytics Dashboard",
     description: "An interactive dashboard for visualizing complex datasets, featuring customizable charts and real-time data updates.",
     tags: ["Python", "Flask", "D3.js", "WebSocket"],
+    imageUrl: "https://picsum.photos/seed/3/600/400",
+    imageHint: "data dashboard",
     liveUrl: "#",
     githubUrl: "#",
   },
@@ -50,20 +55,19 @@ export function Projects() {
       <Carousel className="w-full" opts={{ align: "start", loop: true }}>
         <CarouselContent>
           {projects.map((project) => {
-            const projectImage = PlaceHolderImages.find(img => img.id === project.id);
             return (
               <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
                   <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl">
                     <CardHeader>
-                      {projectImage && (
+                      {project.imageUrl && (
                         <div className="aspect-video relative mb-4">
                            <Image
-                            src={projectImage.imageUrl}
-                            alt={projectImage.description}
+                            src={project.imageUrl}
+                            alt={project.title}
                             fill
                             className="object-cover rounded-t-lg"
-                            data-ai-hint={projectImage.imageHint}
+                            data-ai-hint={project.imageHint}
                           />
                         </div>
                       )}
