@@ -4,8 +4,6 @@ import { ArrowDown, LocateIcon } from "lucide-react";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "./ui/button";
 
-const heroImage = PlaceHolderImages.find((img) => img.id === "hero-image");
-
 export function Hero() {
   return (
     <section
@@ -36,18 +34,16 @@ export function Hero() {
             </div>
           </div>
           <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
-            {heroImage && (
               <div className="relative w-[300px] h-[450px] md:w-[400px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
                 <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  fill
+                  src="/hero-image.png"
+                  alt="Hero Image"
+                  width={400}
+                  height={600}
                   className="object-cover"
-                  data-ai-hint={heroImage.imageHint}
                   priority
                 />
               </div>
-            )}
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
