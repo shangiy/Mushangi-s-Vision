@@ -20,8 +20,9 @@ const projects = [
     imageUrls: [
       "/e-commerce-system.png",
       "/ecommerce-laptop.png",
+      "/alpha-Admin-Dashboard.png",
     ],
-    imageHints: ["ecommerce system", "ecommerce laptop"],
+    imageHints: ["ecommerce system", "ecommerce laptop", "admin dashboard"],
     liveUrl: "#",
     githubUrl: "#",
   },
