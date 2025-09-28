@@ -1,34 +1,62 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, LocateIcon } from "lucide-react";
+import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { Button } from "./ui/button";
+
+const heroImage = PlaceHolderImages.find((img) => img.id === "hero-image");
 
 export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-[80dvh] min-h-[500px] max-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-background/30 animate-gradient bg-[length:200%_200%] opacity-20" />
-      <div className="container px-4 md:px-6 text-center z-10">
-        <div
-          className="animate-in fade-in slide-in-from-bottom-12 duration-1000"
-        >
-          <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
-            Mushangi's Vision
-          </h1>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-            A creative developer crafting beautiful and functional web experiences.
-          </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <Button asChild size="lg">
-              <Link href="#projects">View My Work</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="#contact">
-                Get in Touch <ArrowDown className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-background/30" />
+      <div className="container px-4 md:px-6 z-10">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="animate-in fade-in slide-in-from-left-12 duration-1000 text-center md:text-left">
+            <div className="inline-flex items-center rounded-lg bg-muted px-3 py-1 text-sm mb-4">
+              <LocateIcon className="mr-2 h-4 w-4" /> Based in Your City, World
+            </div>
+            <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl">
+              Mushangi's Vision
+            </h1>
+            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl md:mx-0">
+              A creative developer crafting beautiful and functional web
+              experiences.
+            </p>
+            <div className="mt-8 flex justify-center md:justify-start gap-4">
+              <Button asChild size="lg">
+                <Link href="#projects">View My Work</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link href="#contact">Get in Touch</Link>
+              </Button>
+            </div>
           </div>
+          <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
+            {heroImage && (
+              <div className="relative w-[300px] h-[450px] md:w-[400px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
+                <Image
+                  src={heroImage.imageUrl}
+                  alt={heroImage.description}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={heroImage.imageHint}
+                  priority
+                />
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+            <Link href="#about" aria-label="Scroll down">
+                <div className="flex flex-col items-center gap-1 text-muted-foreground animate-bounce">
+                    <ArrowDown className="h-6 w-6" />
+                    <span className="text-xs">Scroll</span>
+                </div>
+            </Link>
         </div>
       </div>
     </section>
