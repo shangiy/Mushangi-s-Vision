@@ -48,9 +48,9 @@ const projects = [
   },
   {
     id: "project-3",
-    title: "Data Analytics Dashboard",
-    description: "An interactive dashboard for visualizing complex datasets, featuring customizable charts and real-time data updates.",
-    tags: ["Python", "Flask", "D3.js", "WebSocket"],
+    title: "Shape GEN and color painter web",
+    description: "A web application for generating shapes and painting with colors using a canvas.",
+    tags: ["HTML5", "Canvas", "JavaScript"],
     imageUrls: ["https://picsum.photos/seed/3/600/400"],
     imageHints: ["data dashboard"],
     liveUrl: "#",
@@ -70,7 +70,7 @@ export function Projects() {
         </p>
       </div>
 
-      <Carousel className="w-full" opts={{ align: "start", loop: true }}
+      <Carousel className="w-full" opts={{ loop: true }}
        plugins={[
         Autoplay({
           delay: 3000,
