@@ -60,15 +60,15 @@ export function Projects() {
         </p>
       </div>
 
-      <Carousel className="w-full" opts={{ align: "start", loop: projects.length > 2 }}
+      <Carousel className="w-full" opts={{ align: "start", loop: true }}
        plugins={[
         Autoplay({
           delay: 3000,
         }),
       ]}>
-        <CarouselContent>
+        <CarouselContent className="-ml-4">
           {projects.map((project) => (
-            <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={project.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
               <div className="p-1 h-full">
                 <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl">
                   <CardHeader>
@@ -97,8 +97,8 @@ export function Projects() {
                         </CarouselContent>
                         {project.imageUrls.length > 1 && (
                           <>
-                            <CarouselPrevious />
-                            <CarouselNext />
+                            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
+                            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
                           </>
                         )}
                       </Carousel>
@@ -130,8 +130,8 @@ export function Projects() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
+        <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
       </Carousel>
     </Section>
   );
