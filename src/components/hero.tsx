@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, LocateIcon } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import { Button } from "./ui/button";
 
 export function Hero() {
@@ -10,7 +9,7 @@ export function Hero() {
       id="hero"
       className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-background/30" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-background/30 animate-gradient" />
       <div className="container px-4 md:px-6 z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="animate-in fade-in slide-in-from-left-12 duration-1000 text-center md:text-left">
