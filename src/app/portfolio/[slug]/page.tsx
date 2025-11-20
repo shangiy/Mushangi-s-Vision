@@ -16,6 +16,8 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
     notFound();
   }
 
+  const additionalImages = project.imageUrls.slice(1);
+
   return (
     <div className="flex flex-col min-h-dvh bg-background text-foreground">
       <Header />
@@ -62,6 +64,25 @@ export default function ProjectDetailPage({ params }: { params: { slug: string }
               <p key={index}>{paragraph}</p>
             ))}
           </div>
+
+          {project.slug === 'game-app' && additionalImages.length > 0 && (
+            <div className="mt-12">
+              <h2 className="font-headline text-2xl font-bold tracking-tight mb-4 text-center">In-Game Screenshots</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {additionalImages.map((url, index) => (
+                  <div key={index} className="aspect-video relative rounded-lg overflow-hidden">
+                    <Image
+                      src={url}
+                      alt={`${project.title} - screenshot ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      data-ai-hint={project.imageHints[index + 1] || ""}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="flex justify-center gap-4 mt-12">
             {project.githubUrl && project.githubUrl !== '#' && (
