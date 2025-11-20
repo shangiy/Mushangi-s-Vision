@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Autoplay from "embla-carousel-autoplay";
 
 
 const projects = [
@@ -55,7 +56,7 @@ const projects = [
     title: "Clients Portfolio",
     description: "A beautiful and responsive portfolio website built for a client to showcase their work and skills.",
     tags: ["Next.js", "React", "Tailwind CSS"],
-    imageUrls: ["/wanjikuHome.png", "/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
+    imageUrls: ["/wanjikuHome.png","/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
     imageHints: ["client portfolio", "blog section", "art curator", "footer design"],
     liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
     githubUrl: "#",
@@ -128,12 +129,14 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
                 View More
                 </Link>
             </Button>
+            {project.liveUrl !== '#' && (
             <Button asChild size="sm">
                 <Link href={project.liveUrl} target="_blank">
                 <ExternalLink />
                 Live Demo
                 </Link>
             </Button>
+            )}
             </div>
         </CardContent>
         </Card>
@@ -153,15 +156,26 @@ export function Projects() {
         </p>
       </div>
 
-      <div className="relative w-full overflow-hidden">
-        <div className="flex w-max animate-marquee hover:pause">
-            {[...projects, ...projects].map((project, index) => (
-                <div key={`${project.id}-${index}`} className="flex-none px-4" style={{ width: '33.33%' }}>
-                   <ProjectCard project={project} />
-                </div>
-            ))}
-        </div>
-      </div>
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+            Autoplay({
+                delay: 3000,
+            }),
+        ]}
+        className="w-full"
+      >
+        <CarouselContent>
+          {projects.map((project) => (
+            <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
+              <ProjectCard project={project} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </Section>
   );
 }
