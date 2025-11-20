@@ -152,7 +152,7 @@ export function Projects() {
                         <Button asChild variant="outline" size="sm">
                           <Link href={project.githubUrl} target="_blank">
                             <Github />
-                            GitHub
+                            View More
                           </Link>
                         </Button>
                         <Button asChild size="sm">
