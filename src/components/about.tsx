@@ -13,8 +13,8 @@ export function About() {
         <div className="flex flex-col justify-center">
             <div className="flex items-center justify-center md:justify-start gap-4">
                 <Globe className="w-6 h-6 animate-spin-slow text-primary" />
-                <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
-                    AI Enthusiast & dev
+                <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-primary">
+                    AI Enthusiast & Dev
                 </h3>
             </div>
             <div className="mt-4">
