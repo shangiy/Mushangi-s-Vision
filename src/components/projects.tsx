@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -14,6 +14,7 @@ import Autoplay from "embla-carousel-autoplay";
 const projects = [
   {
     id: "project-1",
+    slug: "ecommerce-platform",
     title: "E-Commerce Platform",
     description: "A full-featured online store with a modern UI, product management, and a secure checkout process.",
     tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
@@ -28,6 +29,7 @@ const projects = [
   },
   {
     id: "project-2",
+    slug: "banking-mobile-app",
     title: "Banking Mobile-App",
     description: "A collaborative tool for teams to organize tasks, set deadlines, and track progress with an intuitive drag-and-drop interface.",
     tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
@@ -38,6 +40,7 @@ const projects = [
   },
   {
     id: "project-4",
+    slug: "game-app",
     title: "Game App",
     description: "An interactive game application with engaging UI and real-time features.",
     tags: ["React Native", "Firebase", "Lottie"],
@@ -48,6 +51,7 @@ const projects = [
   },
   {
     id: "project-6",
+    slug: "clients-portfolio",
     title: "Clients Portfolio",
     description: "A beautiful and responsive portfolio website built for a client to showcase their work and skills.",
     tags: ["Next.js", "React", "Tailwind CSS"],
@@ -58,6 +62,7 @@ const projects = [
   },
   {
     id: "project-3",
+    slug: "shape-color-generator",
     title: "Shape GEN and color painter web",
     description: "A web application for generating shapes and painting with colors using a canvas.",
     tags: ["HTML5", "Canvas", "JavaScript"],
@@ -68,6 +73,7 @@ const projects = [
   },
   {
     id: "project-5",
+    slug: "parms-xclusive-cars",
     title: "Parms Xclusive Cars Ltd System",
     description: "Developed a parmsXclusive cars ltd website that allows user and customer to look for their preferred car either to buy or trade-in with an existing car.",
     tags: ["PHP", "MySQL", "HTML/CSS"],
@@ -150,8 +156,7 @@ export function Projects() {
                     </CardDescription>
                      <div className="flex gap-2 mt-4">
                         <Button asChild variant="outline" size="sm">
-                          <Link href={project.githubUrl} target="_blank">
-                            <Github />
+                           <Link href={`/portfolio/${project.slug}`}>
                             View More
                           </Link>
                         </Button>
