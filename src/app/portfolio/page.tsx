@@ -16,7 +16,7 @@ export default function PortfolioPage() {
               <p className="text-xl text-muted-foreground">Full-Stack Developer</p>
               
               <h2 className="font-headline text-2xl font-bold tracking-tight mt-12">Summary</h2>
-              <p>Highly accomplished Full-Stack Developer with 5+ years of experience spearheading robust and scalable solutions across various tech companies. Proven expertise in leading the full development lifecycle of complex platforms, specializing in microservices architecture and responsive front-end interfaces. Demonstrated ability to drive business growth, as evidenced by a 20% increase in sales on a major e-commerce platform. Adept at mentoring junior developers and elevating team coding standards through best practices and collaborative development.</p>
+              <p>Highly accomplished Full-Stack Developer with 2+ years of experience spearheading robust and scalable solutions across various tech organisation. An expertise in  full development lifecycle of complex platforms, specializing in microservices architecture and responsive front-end interfaces. Demonstrated ability to drive business growth, as evidenced by a 20% increase in sales on a major e-commerce platform. Adept at mentoring junior developers and elevating team coding standards through best practices and collaborative development.</p>
 
               <h2 className="font-headline text-2xl font-bold tracking-tight mt-12">Experience</h2>
               <div className="mb-6">
