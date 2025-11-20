@@ -33,12 +33,11 @@ export function Hero() {
             </div>
           </div>
           <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
-              <div className="relative w-[300px] h-[450px] md:w-[400px] md:h-[600px] rounded-lg overflow-hidden shadow-2xl">
+              <div className="relative w-[300px] md:w-[400px] aspect-[2/3] rounded-lg overflow-hidden shadow-2xl">
                 <Image
                   src="/hero-image.png"
                   alt="Hero Image"
-                  width={400}
-                  height={600}
+                  fill
                   className="object-cover"
                   priority
                 />
