@@ -43,8 +43,8 @@ export function ScrollToTop() {
       <button
         onClick={scrollToTop}
         className={cn(
-          "relative h-14 w-14 rounded-full transition-opacity duration-300",
-          "bg-background/80 hover:bg-background/90 text-primary shadow-lg backdrop-blur-sm",
+          "relative h-14 w-14 rounded-full transition-all duration-300",
+          "bg-sky-500 text-white shadow-lg hover:bg-blue-700",
           isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         aria-label="Scroll to top"
@@ -59,7 +59,7 @@ export function ScrollToTop() {
             cx="22"
             cy="22"
             r="20"
-            className="stroke-current text-primary/20"
+            className="stroke-current opacity-20"
             strokeWidth="3"
             fill="transparent"
           />
@@ -67,7 +67,7 @@ export function ScrollToTop() {
             cx="22"
             cy="22"
             r="20"
-            className="stroke-current text-primary transition-all duration-300"
+            className="stroke-current transition-all duration-300"
             strokeWidth="3"
             fill="transparent"
             strokeDasharray={circumference}
