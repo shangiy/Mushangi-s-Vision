@@ -93,21 +93,4 @@
   .animate-spin-slow {
     animation: spin 20s linear infinite;
   }
-
-  .animate-marquee {
-    animation: marquee 40s linear infinite;
-  }
-
-  .pause:hover {
-    animation-play-state: paused;
-  }
-
-  @keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-  }
 }
