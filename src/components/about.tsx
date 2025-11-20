@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Section } from "@/components/section";
 import { SplineScene } from "./spline-scene";
+import { Globe } from "lucide-react";
 
 export function About() {
   return (
@@ -10,9 +11,12 @@ export function About() {
             <SplineScene />
         </div>
         <div className="flex flex-col justify-center">
-            <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-center md:text-left">
-                AI Enthusiast & Techie
-            </h3>
+            <div className="flex items-center justify-center md:justify-start gap-4">
+                <Globe className="w-12 h-12 animate-spin-slow text-primary" />
+                <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
+                    AI Enthusiast & Techie
+                </h3>
+            </div>
             <div className="mt-4">
                 <p className="text-muted-foreground md:text-lg">
                     Beyond my core development work, I am deeply fascinated by the world of Artificial Intelligence. I am an avid learner in the AI space, constantly exploring the latest advancements in machine learning, large language models, and generative AI. This passion isn't just theoretical; I actively seek ways to integrate intelligent features into my projects to create smarter, more dynamic user experiences.
