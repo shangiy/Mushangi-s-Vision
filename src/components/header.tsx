@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 import { RotatingLogo } from "./rotating-logo";
 
 const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#resume", label: "Resume" },
+  { href: "/#about", label: "About" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -31,9 +31,29 @@ export function Header() {
 
   const closeSheet = () => setSheetOpen(false);
 
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const targetId = href.substring(2);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    if (isSheetOpen) {
+      closeSheet();
+    }
+  };
+
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // Check if we are on the home page
+    if (window.location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+        // If on another page, navigate to home and then scroll
+        window.location.href = '/';
+    }
     if (isSheetOpen) {
       closeSheet();
     }
@@ -64,6 +84,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(e) => handleLinkClick(e, link.href)}
               className="text-sm font-medium transition-colors hover:text-primary"
             >
               {link.label}
@@ -96,7 +117,7 @@ export function Header() {
                       key={link.href}
                       href={link.href}
                       className="text-lg font-medium transition-colors hover:text-primary"
-                      onClick={closeSheet}
+                      onClick={(e) => handleLinkClick(e, link.href)}
                     >
                       {link.label}
                     </Link>

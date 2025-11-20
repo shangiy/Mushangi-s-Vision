@@ -11,7 +11,7 @@ export function SplineScene() {
         <Spline scene="https://prod.spline.design/LP6ZDmLRVw05aGl0/scene.splinecode" />
         <div className="absolute bottom-4 right-4">
             <Button asChild size="lg" className="rounded-full bg-sky-500 text-white hover:bg-sky-700">
-                <Link href="#about">
+                <Link href="/portfolio">
                     View More
                     <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
