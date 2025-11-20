@@ -92,8 +92,8 @@ This project involved creating a clean, modern, and fully responsive portfolio w
 The goal was to create a digital space that effectively showcases the client's skills, projects, and professional background. The final product is a fast, elegant, and easy-to-navigate website that serves as a powerful tool for the client's personal branding.
     `,
     tags: ["Next.js", "React", "Tailwind CSS"],
-    imageUrls: ["/wanjikuHome.png"],
-    imageHints: ["client portfolio"],
+    imageUrls: ["/wanjikuHome.png", "/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
+    imageHints: ["client portfolio", "blog section", "art curator", "footer design"],
     liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
     githubUrl: "#",
   },
