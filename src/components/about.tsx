@@ -1,20 +1,26 @@
 import Image from "next/image";
 import { Section } from "@/components/section";
+import { SplineScene } from "./spline-scene";
 
 export function About() {
   return (
     <Section id="about" className="bg-secondary">
-      <div className="text-center mb-16">
-        <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
-            AI Enthusiast & Techie
-        </h3>
-        <div className="mt-4 max-w-3xl mx-auto">
-            <p className="text-muted-foreground md:text-lg">
-                Beyond my core development work, I am deeply fascinated by the world of Artificial Intelligence. I am an avid learner in the AI space, constantly exploring the latest advancements in machine learning, large language models, and generative AI. This passion isn't just theoretical; I actively seek ways to integrate intelligent features into my projects to create smarter, more dynamic user experiences.
-            </p>
-            <p className="mt-4 text-muted-foreground md:text-lg">
-                As a techie, I believe in the power of technology to solve real-world problems. Whether it's building a responsive front-end or designing a scalable backend, I'm driven by the challenge of making things work efficiently and elegantly. I'm always experimenting with new tools and frameworks to stay at the forefront of innovation.
-            </p>
+      <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="w-full h-full">
+            <SplineScene />
+        </div>
+        <div className="flex flex-col justify-center">
+            <h3 className="font-headline text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl text-center md:text-left">
+                AI Enthusiast & Techie
+            </h3>
+            <div className="mt-4">
+                <p className="text-muted-foreground md:text-lg">
+                    Beyond my core development work, I am deeply fascinated by the world of Artificial Intelligence. I am an avid learner in the AI space, constantly exploring the latest advancements in machine learning, large language models, and generative AI. This passion isn't just theoretical; I actively seek ways to integrate intelligent features into my projects to create smarter, more dynamic user experiences.
+                </p>
+                <p className="mt-4 text-muted-foreground md:text-lg">
+                    As a techie, I believe in the power of technology to solve real-world problems. Whether it's building a responsive front-end or designing a scalable backend, I'm driven by the challenge of making things work efficiently and elegantly. I'm always experimenting with new tools and frameworks to stay at the forefront of innovation.
+                </p>
+            </div>
         </div>
       </div>
       <div className="grid gap-12 md:grid-cols-2 items-center">
