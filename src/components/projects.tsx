@@ -1,14 +1,14 @@
+
 "use client";
 
 import Image from "next/image";
 import { Section } from "@/components/section";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import Autoplay from "embla-carousel-autoplay";
 
 
 const projects = [
@@ -84,6 +84,63 @@ const projects = [
   },
 ];
 
+const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+    <div className="p-1 h-full">
+        <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl">
+        <CardHeader>
+            {project.imageUrls && project.imageUrls.length > 0 && (
+                <Carousel className="w-full" opts={{ loop: true }}>
+                    <CarouselContent>
+                    {project.imageUrls.map((url, index) => (
+                        <CarouselItem key={index}>
+                        <div className="aspect-video relative mb-4">
+                            <Image
+                            src={url}
+                            alt={`${project.title} - image ${index + 1}`}
+                            fill
+                            className="object-cover rounded-t-lg"
+                            data-ai-hint={project.imageHints[index] || ""}
+                            />
+                        </div>
+                        </CarouselItem>
+                    ))}
+                    </CarouselContent>
+                </Carousel>
+            )}
+            <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
+            <div className="flex flex-wrap gap-2 pt-2">
+            {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
+            </div>
+        </CardHeader>
+        <CardContent className="flex-grow flex flex-col">
+            <CardDescription className="flex-grow">{project.description}
+                {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-5' || project.id === 'project-6') && project.liveUrl !== '#' && (
+                <p className="mt-2 text-sm break-all">
+                    <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                        {project.liveUrl}
+                    </Link>
+                </p>
+                )}
+            </CardDescription>
+            <div className="flex gap-2 mt-4">
+            <Button asChild variant="outline" size="sm">
+                <Link href={`/portfolio/${project.slug}`}>
+                View More
+                </Link>
+            </Button>
+            <Button asChild size="sm">
+                <Link href={project.liveUrl} target="_blank">
+                <ExternalLink />
+                Live Demo
+                </Link>
+            </Button>
+            </div>
+        </CardContent>
+        </Card>
+    </div>
+);
+
+
 export function Projects() {
   return (
     <Section id="projects">
@@ -96,86 +153,15 @@ export function Projects() {
         </p>
       </div>
 
-      <Carousel className="w-full" opts={{ loop: true }}
-       plugins={[
-        Autoplay({
-          delay: 3000,
-        }),
-      ]}>
-        <CarouselContent className="-ml-4">
-          {projects.map((project) => (
-            <CarouselItem key={project.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
-              <div className="p-1 h-full">
-                <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl">
-                  <CardHeader>
-                    {project.imageUrls && project.imageUrls.length > 0 && (
-                      <Carousel className="w-full" opts={{ loop: true }}
-                      plugins={[
-                        Autoplay({
-                          delay: 5000,
-                          stopOnInteraction: true,
-                        }),
-                      ]}>
-                        <CarouselContent>
-                          {project.imageUrls.map((url, index) => (
-                            <CarouselItem key={index}>
-                              <div className="aspect-video relative mb-4">
-                                <Image
-                                  src={url}
-                                  alt={`${project.title} - image ${index + 1}`}
-                                  fill
-                                  className="object-cover rounded-t-lg"
-                                  data-ai-hint={project.imageHints[index] || ""}
-                                />
-                              </div>
-                            </CarouselItem>
-                          ))}
-                        </CarouselContent>
-                        {project.imageUrls.length > 1 && (
-                          <>
-                            <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
-                            <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
-                          </>
-                        )}
-                      </Carousel>
-                    )}
-                    <CardTitle className="font-headline text-xl">{project.title}</CardTitle>
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col">
-                    <CardDescription className="flex-grow">{project.description}
-                     {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-5' || project.id === 'project-6') && project.liveUrl !== '#' && (
-                        <p className="mt-2 text-sm break-all">
-                            <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                                {project.liveUrl}
-                            </Link>
-                        </p>
-                      )}
-                    </CardDescription>
-                     <div className="flex gap-2 mt-4">
-                        <Button asChild variant="outline" size="sm">
-                           <Link href={`/portfolio/${project.slug}`}>
-                            View More
-                          </Link>
-                        </Button>
-                        <Button asChild size="sm">
-                          <Link href={project.liveUrl} target="_blank">
-                            <ExternalLink />
-                            Live Demo
-                          </Link>
-                        </Button>
-                      </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
+      <div className="relative w-full overflow-hidden">
+        <div className="flex w-max animate-marquee hover:pause">
+            {[...projects, ...projects].map((project, index) => (
+                <div key={`${project.id}-${index}`} className="flex-none px-4" style={{ width: '33.33%' }}>
+                   <ProjectCard project={project} />
+                </div>
+            ))}
+        </div>
+      </div>
     </Section>
   );
 }
