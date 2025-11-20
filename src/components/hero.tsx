@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative w-full flex items-center justify-center overflow-hidden py-32"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/10 to-background/30 animate-gradient" />
       <div className="container px-4 md:px-6 z-10">
@@ -33,11 +33,12 @@ export function Hero() {
             </div>
           </div>
           <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
-              <div className="relative w-[300px] md:w-[400px] aspect-[2/3] rounded-lg overflow-hidden shadow-2xl">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl">
                 <Image
                   src="/hero-image.png"
                   alt="Hero Image"
-                  fill
+                  width={400}
+                  height={600}
                   className="object-cover"
                   priority
                 />
