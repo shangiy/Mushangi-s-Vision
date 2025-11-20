@@ -1,3 +1,4 @@
+
 export type Project = {
   id: string;
   slug: string;
@@ -66,14 +67,14 @@ Firebase is used for the backend, providing real-time database capabilities and 
     title: "Game App",
     description: "An interactive game application with engaging UI and real-time features.",
     longDescription: `
-This Ludo game application brings the classic board game to mobile devices. Built with React Native, it offers a cross-platform experience for both iOS and Android users.
+This Ludo game application brings the classic board game to mobile devices. Built with React Native, it offers a cross-platform experience for both iOS and Android users, allowing for a wider reach with a single codebase.
 
 Game features:
-- **Multiplayer Mode:** Play with friends in real-time, with game state managed by Firebase Realtime Database.
-- **Engaging UI:** The user interface is brought to life with Lottie animations, creating a fun and interactive gameplay experience.
-- **Game Setup:** Players can set up custom games, choosing the number of players and other settings.
+- **Real-time Multiplayer:** The core of the game is its real-time multiplayer functionality. I utilized Firebase Realtime Database to manage game state synchronization between players. This ensures that every move, dice roll, and piece position is instantly updated across all devices in a game session, providing a seamless and competitive experience.
+- **Engaging UI with Lottie:** To make the game more visually appealing and fun, I integrated Lottie animations for key interactions like dice rolls, piece movements, and winning celebrations. This adds a layer of polish and delight to the user interface.
+- **Customizable Game Setup:** Players aren't locked into a single game mode. They can set up custom games, choosing the number of players (from 2 to 4) and other game-specific settings before starting a match.
 
-This project was a great exercise in managing real-time data synchronization and creating a polished, engaging mobile application.
+This project was a great exercise in managing real-time data synchronization and creating a polished, engaging mobile application. The main challenge was ensuring that the game logic was robust and that the real-time updates were efficient to prevent any lag, which was achieved through careful data structure design in Firebase.
     `,
     tags: ["React Native", "Firebase", "Lottie"],
     imageUrls: ["/ludoGame-homepage.png", "/LudoGameboardLayout.png", "/game-Setup.png"],
@@ -92,7 +93,7 @@ This project involved creating a clean, modern, and fully responsive portfolio w
 The goal was to create a digital space that effectively showcases the client's skills, projects, and professional background. The final product is a fast, elegant, and easy-to-navigate website that serves as a powerful tool for the client's personal branding.
     `,
     tags: ["Next.js", "React", "Tailwind CSS"],
-    imageUrls: ["/wanjikuHome.png", "/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
+    imageUrls: ["/wanjikuHome.png","/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
     imageHints: ["client portfolio", "blog section", "art curator", "footer design"],
     liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
     githubUrl: "#",
@@ -139,3 +140,4 @@ This project was a great opportunity to work with server-side scripting and data
     githubUrl: "https://shangiy.github.io/p5/",
   },
 ];
+
