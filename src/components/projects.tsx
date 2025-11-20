@@ -47,6 +47,16 @@ const projects = [
     githubUrl: "#",
   },
   {
+    id: "project-6",
+    title: "Clients Portfolio",
+    description: "A beautiful and responsive portfolio website built for a client to showcase their work and skills.",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+    imageUrls: ["/wanjikuHome.png"],
+    imageHints: ["client portfolio"],
+    liveUrl: "#",
+    githubUrl: "#",
+  },
+  {
     id: "project-3",
     title: "Shape GEN and color painter web",
     description: "A web application for generating shapes and painting with colors using a canvas.",
