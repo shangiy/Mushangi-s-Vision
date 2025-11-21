@@ -10,81 +10,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { projectsData } from "@/lib/projects-data";
 
-const projects = [
-  {
-    id: "project-1",
-    slug: "ecommerce-platform",
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with a modern UI, product management, and a secure checkout process.",
-    tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-    imageUrls: [
-      "/e-commerce-system.png",
-      "/ecommerce-laptop.png",
-      "/alpha-Admin-Dashboard.png",
-    ],
-    imageHints: ["ecommerce system", "ecommerce laptop", "admin dashboard"],
-    liveUrl: "https://6000-firebase-studio-1751840259148.cluster-jbb3mjctu5cbgsi6hwq6u4btwe.cloudworkstations.dev/",
-    githubUrl: "#",
-  },
-  {
-    id: "project-2",
-    slug: "banking-mobile-app",
-    title: "Banking Mobile-App",
-    description: "A collaborative tool for teams to organize tasks, set deadlines, and track progress with an intuitive drag-and-drop interface.",
-    tags: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
-    imageUrls: ["/Banking App-Layout.png", "/Banking-MobileApp.png"],
-    imageHints: ["banking app", "mobile banking"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: "project-4",
-    slug: "game-app",
-    title: "Game App",
-    description: "An interactive game application with engaging UI and real-time features.",
-    tags: ["React Native", "Firebase", "Lottie"],
-    imageUrls: ["/ludoGame-homepage.png", "/LudoGameboardLayout.png", "/game-Setup.png"],
-    imageHints: ["ludo homepage", "ludo gameboard", "game setup"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: "project-6",
-    slug: "clients-portfolio",
-    title: "Clients Portfolio",
-    description: "A beautiful and responsive portfolio website built for a client to showcase their work and skills.",
-    tags: ["Next.js", "React", "Tailwind CSS"],
-    imageUrls: ["/wanjikuHome.png","/Wanjiku'sBlog.png", "/Wanjiku'sArtCurator.png", "/Wanjiku'sFooter.png"],
-    imageHints: ["client portfolio", "blog section", "art curator", "footer design"],
-    liveUrl: "https://wanjiku-s-portfolio.onrender.com/",
-    githubUrl: "#",
-  },
-  {
-    id: "project-3",
-    slug: "shape-color-generator",
-    title: "Shape GEN and color painter web",
-    description: "A web application for generating shapes and painting with colors using a canvas.",
-    tags: ["HTML5", "Canvas", "JavaScript"],
-    imageUrls: ["https://picsum.photos/seed/3/600/400"],
-    imageHints: ["data dashboard"],
-    liveUrl: "https://shangiy.github.io/colourGen.0/",
-    githubUrl: "#",
-  },
-  {
-    id: "project-5",
-    slug: "parms-xclusive-cars",
-    title: "Parms Xclusive Cars Ltd System",
-    description: "Developed a parmsXclusive cars ltd website that allows user and customer to look for their preferred car either to buy or trade-in with an existing car.",
-    tags: ["PHP", "MySQL", "HTML/CSS"],
-    imageUrls: ["/parmsXclusive trade-in.png", "/parmsXclusive cars ltd LC.png", "/parmsXclusive cars ltd website.png"],
-    imageHints: ["car trade-in", "car landing", "car website"],
-    liveUrl: "https://shangiy.github.io/p5/",
-    githubUrl: "https://shangiy.github.io/p5/",
-  },
-];
-
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
+const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => (
   <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl w-[400px]">
     <CardHeader>
         {project.imageUrls && project.imageUrls.length > 0 && (
@@ -142,7 +70,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
 
 
 export function Projects() {
-    const duplicatedProjects = [...projects, ...projects];
+    const duplicatedProjects = [...projectsData, ...projectsData];
     return (
         <Section id="projects">
         <div className="flex flex-col items-center text-center gap-4 mb-12">
@@ -155,13 +83,20 @@ export function Projects() {
         </div>
 
         <div className="relative overflow-hidden w-full group">
-            <div className="flex animate-marquee">
+            <div className="flex animate-marquee group-hover:animate-marquee-slow">
                 {duplicatedProjects.map((project, index) => (
                     <div key={`${project.id}-${index}`} className="px-4 flex-shrink-0">
                         <ProjectCard project={project} />
                     </div>
                 ))}
             </div>
+        </div>
+        <div className="text-center mt-12">
+            <Button asChild size="lg" className="rounded-full">
+                <Link href="/portfolio">
+                    View All Projects
+                </Link>
+            </Button>
         </div>
         </Section>
     );

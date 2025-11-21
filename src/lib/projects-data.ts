@@ -140,4 +140,3 @@ This project was a great opportunity to work with server-side scripting and data
     githubUrl: "https://shangiy.github.io/p5/",
   },
 ];
-
