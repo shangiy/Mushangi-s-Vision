@@ -104,6 +104,10 @@ export default {
             '0%': { transform: 'translateX(0)' },
             '100%': { transform: 'translateX(-50%)' },
         },
+        'marquee-slow': {
+            '0%': { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -111,6 +115,7 @@ export default {
         'gradient': 'gradient 15s ease infinite',
         'spin-slow': 'spin 20s linear infinite',
         'marquee': 'marquee 13s linear infinite',
+        'marquee-slow': 'marquee-slow 40s linear infinite',
       },
     },
   },

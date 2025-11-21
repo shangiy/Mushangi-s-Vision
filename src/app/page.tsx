@@ -6,6 +6,7 @@ import { Skills } from "@/components/skills";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { BlogSection } from "@/components/blog-section";
+import { SkillsMarquee } from "@/components/skills-marquee";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <About />
         <Projects />
+        <SkillsMarquee />
         <Skills />
         <BlogSection />
         <Contact />
