@@ -14,7 +14,7 @@ const navLinks = [
   { href: "/#skills", label: "Skills" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },
-  { href: "/#contact", label: "Contact" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -23,9 +23,9 @@ export function Header() {
   const closeSheet = () => setSheetOpen(false);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("/#")) {
+    if (href.startsWith("#") || href.startsWith("/#")) {
       e.preventDefault();
-      const targetId = href.substring(2);
+      const targetId = href.substring(href.lastIndexOf("#") + 1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });

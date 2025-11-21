@@ -3,7 +3,6 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
-import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { BlogSection } from "@/components/blog-section";
 import { SkillsMarquee } from "@/components/skills-marquee";
@@ -19,7 +18,6 @@ export default function Home() {
         <SkillsMarquee />
         <Skills />
         <BlogSection />
-        <Contact />
       </main>
       <Footer />
     </div>
