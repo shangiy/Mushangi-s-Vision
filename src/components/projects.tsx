@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -154,7 +155,7 @@ export function Projects() {
         </div>
 
         <div className="relative overflow-hidden w-full group">
-            <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
+            <div className="flex animate-marquee">
                 {duplicatedProjects.map((project, index) => (
                     <div key={`${project.id}-${index}`} className="px-4 flex-shrink-0">
                         <ProjectCard project={project} />

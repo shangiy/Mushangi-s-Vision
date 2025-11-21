@@ -93,4 +93,22 @@
   .animate-spin-slow {
     animation: spin 20s linear infinite;
   }
+  
+  .group:hover .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  .group:hover .animate-marquee-slow {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .animate-marquee {
+      animation: marquee 20s linear infinite;
+    }
+    .group:hover .animate-marquee {
+      animation: marquee 40s linear infinite;
+    }
+  }
+
 }
