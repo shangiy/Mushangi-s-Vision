@@ -19,7 +19,7 @@ import {
   SiFigma,
   SiVercel,
   SiDocker,
-  SiAmazonaws
+  SiAmazon
 } from "@icons-pack/react-simple-icons";
 
 const skills = [
@@ -40,7 +40,7 @@ const skills = [
   { name: "Figma", icon: <SiFigma size={40} /> },
   { name: "Vercel", icon: <SiVercel size={40} /> },
   { name: "Docker", icon: <SiDocker size={40} /> },
-  { name: "AWS", icon: <SiAmazonaws size={40} /> },
+  { name: "AWS", icon: <SiAmazon size={40} /> },
 ];
 
 const duplicatedSkills = [...skills, ...skills];
