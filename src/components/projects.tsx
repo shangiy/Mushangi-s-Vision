@@ -9,8 +9,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import Autoplay from "embla-carousel-autoplay";
-
 
 const projects = [
   {
@@ -86,7 +84,7 @@ const projects = [
 ];
 
 const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-    <div className="p-1 h-full">
+    <div className="p-1 h-full w-[400px] flex-shrink-0">
         <Card className="h-full flex flex-col overflow-hidden transition-all hover:shadow-xl">
         <CardHeader>
             {project.imageUrls && project.imageUrls.length > 0 && (
@@ -145,37 +143,27 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
 
 
 export function Projects() {
-  return (
-    <Section id="projects">
-      <div className="flex flex-col items-center text-center gap-4 mb-12">
-        <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-          My Projects
-        </h2>
-        <p className="max-w-[700px] text-muted-foreground md:text-lg">
-          Here are some of the projects I'm proud to have worked on.
-        </p>
-      </div>
+    const duplicatedProjects = [...projects, ...projects];
+    return (
+        <Section id="projects">
+        <div className="flex flex-col items-center text-center gap-4 mb-12">
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+            My Projects
+            </h2>
+            <p className="max-w-[700px] text-muted-foreground md:text-lg">
+            Here are some of the projects I'm proud to have worked on.
+            </p>
+        </div>
 
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        plugins={[
-            Autoplay({
-                delay: 3000,
-            }),
-        ]}
-        className="w-full"
-      >
-        <CarouselContent>
-          {projects.map((project) => (
-            <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/3">
-              <ProjectCard project={project} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-    </Section>
-  );
+        <div className="relative overflow-hidden w-full group">
+            <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
+                {duplicatedProjects.map((project, index) => (
+                    <div key={`${project.id}-${index}`} className="px-4">
+                        <ProjectCard project={project} />
+                    </div>
+                ))}
+            </div>
+        </div>
+        </Section>
+    );
 }
