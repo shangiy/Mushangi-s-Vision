@@ -114,7 +114,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
         'gradient': 'gradient 15s ease infinite',
         'spin-slow': 'spin 20s linear infinite',
-        'marquee': 'marquee 13s linear infinite',
+        'marquee': 'marquee 30s linear infinite',
         'marquee-slow': 'marquee-slow 40s linear infinite',
       },
     },
