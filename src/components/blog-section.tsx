@@ -14,7 +14,7 @@ export function BlogSection() {
         <Section id="blog" className="bg-white">
             <div className="flex flex-col items-center text-center gap-4 mb-12">
                 <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                    From the Blog
+                    From My Blog
                 </h2>
                 <p className="max-w-[700px] text-muted-foreground md:text-lg">
                     Sharing my thoughts on technology, design, and development.
