@@ -88,7 +88,7 @@ export function Footer() {
 
       </div>
       <div className="bg-gray-950/50">
-        <div className="container flex flex-col md:flex-row items-center justify-between gap-4 py-4">
+        <div className="container flex flex-col md:flex-row items-center justify-center gap-4 py-4">
             <p className="text-center text-xs text-gray-400">
                 &copy; {new Date().getFullYear()} Mushangi Patrick Portfolio. All rights reserved.
             </p>
