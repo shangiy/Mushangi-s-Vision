@@ -29,7 +29,15 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => (
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
         </div>
-        <CardDescription className="flex-grow mb-4">{project.description}</CardDescription>
+        <CardDescription className="flex-grow mb-4">{project.description}
+         {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-4' || project.id === 'project-5' || project.id === 'project-6') && project.liveUrl !== '#' && (
+            <p className="mt-2 text-sm break-all">
+                <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                    {project.liveUrl}
+                </Link>
+            </p>
+            )}
+        </CardDescription>
         <div className="flex gap-2 mt-auto">
           <Button asChild variant="outline" size="sm">
               <Link href={`/portfolio/${project.slug}`}>
