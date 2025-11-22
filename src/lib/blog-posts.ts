@@ -1,3 +1,4 @@
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -12,7 +13,7 @@ export const blogPosts: BlogPost[] = [
     slug: 'understanding-react-hooks',
     title: 'A Deep Dive into React Hooks',
     description: 'Explore the power and flexibility of React Hooks and how they can simplify your components.',
-    date: '2024-05-15',
+    date: '2025-11-15',
     image: 'blog-post-1',
     content: `
 React Hooks, introduced in React 16.8, revolutionized how we write components. They allow you to use state and other React features without writing a class. Let's explore some of the most common hooks.
@@ -67,7 +68,7 @@ By mastering these hooks, you can write cleaner, more concise, and more maintain
     slug: 'optimizing-web-performance',
     title: 'Core Web Vitals: A Guide to Optimizing Performance',
     description: 'Learn about Google\'s Core Web Vitals and how to optimize your site for a better user experience.',
-    date: '2024-04-22',
+    date: '2025-08-22',
     image: 'blog-post-2',
     content: `
 Core Web Vitals are a set of specific factors that Google considers important in a webpage’s overall user experience. They are made up of three specific page speed and user interaction measurements: Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS).
