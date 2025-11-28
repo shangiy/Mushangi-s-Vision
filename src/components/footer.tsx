@@ -2,6 +2,12 @@ import Link from "next/link";
 import { Github, Linkedin, Twitter, MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "./ui/button";
 import { RotatingLogo } from "./rotating-logo";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function Footer() {
   return (
@@ -90,7 +96,20 @@ export function Footer() {
       <div className="bg-gray-950/50">
         <div className="container flex flex-col md:flex-row items-center justify-center gap-4 py-4">
             <p className="text-center text-xs text-gray-400">
-                &copy; {new Date().getFullYear()} Mushangi Patrick Portfolio. All rights reserved.
+                &copy; {new Date().getFullYear()} Mushangi Patrick Portfolio . Developed by{' '}
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Link href="https://mushangis-portfolio.onrender.com/" target="_blank" className="font-bold text-primary hover:underline">
+                        Coder+
+                      </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Dev : Mushangi Patrick Coder+ , see more</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                . All rights reserved.
             </p>
             <div className="w-10 h-10">
                 <RotatingLogo />
