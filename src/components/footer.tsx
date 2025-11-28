@@ -53,7 +53,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="#" className="hover:text-white transition-colors">FAQs</Link></li>
               <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link href="#" className="hovertext-white transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
@@ -80,7 +80,7 @@ export function Footer() {
                 <Phone className="h-6 w-6 mt-1 text-primary"/>
                 <div>
                     <h4 className="font-semibold text-white mb-1">Quick Contact</h4>
-                    <a href="mailto:contact@mushangi.dev" className="block hover:text-white">contact@mushangi.dev</a>
+                    <Link href="/portfolio" className="block hover:text-white">contact@mushangi.dev</Link>
                     <a href="tel:+254727607824" className="block hover:text-white">+254 727 607 824</a>
                 </div>
             </div>
