@@ -86,7 +86,7 @@ export function Footer() {
                 <Phone className="h-6 w-6 mt-1 text-primary"/>
                 <div>
                     <h4 className="font-semibold text-white mb-1">Quick Contact</h4>
-                    <Link href="/portfolio" className="block hover:text-white">contact@mushangi.dev</Link>
+                    <a href="mailto:mushangip0@gmail.com" className="block hover:text-white">mushangip0@gmail.com</a>
                     <a href="tel:+254727607824" className="block hover:text-white">+254 727 607 824</a>
                 </div>
             </div>
