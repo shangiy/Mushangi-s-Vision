@@ -6,6 +6,7 @@ import { Skills } from "@/components/skills";
 import { Footer } from "@/components/footer";
 import { BlogSection } from "@/components/blog-section";
 import { SkillsMarquee } from "@/components/skills-marquee";
+import { Resume } from "@/components/resume";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Projects />
         <SkillsMarquee />
         <Skills />
+        <Resume />
         <BlogSection />
       </main>
       <Footer />
