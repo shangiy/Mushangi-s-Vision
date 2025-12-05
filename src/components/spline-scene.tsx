@@ -1,14 +1,27 @@
 "use client";
 
-import Spline from '@splinetool/react-spline';
+import React, { Suspense } from 'react';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Loader } from 'lucide-react';
+
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
+
+function SplineLoading() {
+  return (
+    <div className="flex items-center justify-center w-full h-full">
+      <Loader className="animate-spin text-primary" size={48} />
+    </div>
+  );
+}
+
 
 export function SplineScene() {
   return (
     <div className="relative w-full h-full min-h-[300px] md:min-h-[400px]">
-        <Spline scene="https://prod.spline.design/LP6ZDmLRVw05aGl0/scene.splinecode" />
+        <Suspense fallback={<SplineLoading />}>
+            <Spline scene="https://prod.spline.design/LP6ZDmLRVw05aGl0/scene.splinecode" />
+        </Suspense>
         <div className="absolute bottom-4 right-4">
             <Button asChild size="lg" className="rounded-full bg-sky-500 text-white hover:bg-sky-700">
                 <Link href="/portfolio">
