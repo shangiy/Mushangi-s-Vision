@@ -18,7 +18,7 @@ function SplineLoading() {
 
 export function SplineScene() {
   return (
-    <div className="relative w-full h-full min-h-[300px] md:min-h-[400px]">
+    <div className="relative w-full h-full">
         <Suspense fallback={<SplineLoading />}>
             <Spline scene="https://prod.spline.design/LP6ZDmLRVw05aGl0/scene.splinecode" />
         </Suspense>
