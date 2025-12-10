@@ -73,7 +73,6 @@ export function Resume() {
               <Bot className="h-6 w-6" />
             </div>
             <div>
-              <h3 className="font-bold text-lg">AI Generated Summary</h3>
               {isLoading ? (
                 <div className="space-y-2 mt-2">
                   <Skeleton className="h-4 w-[80%]" />
