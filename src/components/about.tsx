@@ -58,10 +58,10 @@ export function About() {
           </p>
             <div className="mt-8">
                 <Button asChild size="lg">
-                    <Link href="#resume">
+                    <a href="/resume.docx" download>
                         Check My Resume
                         <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    </a>
                 </Button>
             </div>
         </div>
