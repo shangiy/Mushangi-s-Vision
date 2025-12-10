@@ -95,7 +95,7 @@ export function Footer() {
       </div>
       <div className="bg-gray-950/50">
         <div className="container flex flex-col md:flex-row items-center justify-center gap-4 py-4">
-            <p className="text-center text-xs text-gray-400">
+            <div className="text-center text-xs text-gray-400">
                 &copy; {new Date().getFullYear()} Mushangi Patrick Portfolio . Developed by{' '}
                 <TooltipProvider>
                   <Tooltip>
@@ -110,7 +110,7 @@ export function Footer() {
                   </Tooltip>
                 </TooltipProvider>
                 . All rights reserved.
-            </p>
+            </div>
             <div className="w-10 h-10">
                 <RotatingLogo />
             </div>
