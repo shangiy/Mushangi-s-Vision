@@ -8,9 +8,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function About() {
   return (
@@ -60,12 +61,10 @@ export function About() {
             My journey in tech started with a curiosity for how things work, which evolved into a love for creating meaningful digital experiences. I thrive on challenges, continuously learn new technologies, and enjoy collaborating with teams to bring ideas to life.
           </p>
             <div className="mt-8">
-                <Button asChild size="lg">
-                    <a href="/resume.docx" download>
-                        Check My Resume
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                </Button>
+                <a href="/resume.docx" download className={cn(buttonVariants({ size: "lg" }))}>
+                    Check My Resume
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
             </div>
         </div>
         <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
