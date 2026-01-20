@@ -50,7 +50,7 @@ export default function ContactPage() {
                                     <Download className="h-5 w-5 text-primary"/>
                                     <div>
                                         <h4 className="font-semibold">Resume</h4>
-                                        <a href="/resume.docx" download className="text-primary font-medium hover:underline">Download Resume (.docx)</a>
+                                        <a href="/Mushangi's resume.pdf" download="Mushangi's Resume.pdf" className="text-primary font-medium hover:underline">Download Resume (.pdf)</a>
                                     </div>
                                 </div>
                             </CardContent>

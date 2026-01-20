@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Section } from "@/components/section";
 import { SplineScene } from "./spline-scene";
@@ -63,7 +64,7 @@ export function About() {
             My journey in tech started with a curiosity for how things work, which evolved into a love for creating meaningful digital experiences. I thrive on challenges, continuously learn new technologies, and enjoy collaborating with teams to bring ideas to life.
           </p>
             <div className="mt-8">
-                <a href="/resume.docx" download className={cn(buttonVariants({ size: "lg" }))}>
+                <a href="/Mushangi's resume.pdf" download="Mushangi's Resume.pdf" className={cn(buttonVariants({ size: "lg" }))}>
                     Check My Resume
                     <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
