@@ -1,9 +1,42 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, LocateIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function Hero() {
+  const fullText = "A creative developer specializing in the design and development of elegant website ,with technical expertise to deliver functional and scalable webApp experiences.";
+  const [text, setText] = useState("");
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    // Reset state on component mount (or refresh)
+    setText('');
+    setShowCursor(true);
+
+    let i = 0;
+    const typingInterval = setInterval(() => {
+      if (i < fullText.length) {
+        setText(prev => prev + fullText.charAt(i));
+        i++;
+      } else {
+        clearInterval(typingInterval);
+        // Start blinking cursor when typing is done
+        const cursorInterval = setInterval(() => {
+          setShowCursor(show => !show);
+        }, 500);
+        
+        // Cleanup cursor interval on component unmount
+        return () => clearInterval(cursorInterval);
+      }
+    }, 40); // Typing speed in ms
+
+    // Cleanup typing interval on component unmount
+    return () => clearInterval(typingInterval);
+  }, []); // Empty dependency array ensures this effect runs only once on mount
+
   return (
     <section
       id="hero"
@@ -19,9 +52,9 @@ export function Hero() {
             <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-6xl md:text-7xl">
               Mushangi P portfolio
             </h1>
-            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl md:mx-0">
-              A creative developer crafting beautiful and functional web
-              experiences.
+            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl md:mx-0 min-h-[96px] md:min-h-[56px]">
+              {text}
+              <span className={`ml-1 transition-opacity duration-100 ${showCursor ? 'opacity-100' : 'opacity-0'}`}>|</span>
             </p>
             <div className="mt-8 flex justify-center md:justify-start gap-4">
               <Button asChild size="lg">
