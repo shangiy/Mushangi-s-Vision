@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -14,7 +15,7 @@ const navLinks = [
   { href: "/#skills", label: "Skills" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blog" },
-  { href: "#contact", label: "Contact" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
@@ -23,14 +24,16 @@ export function Header() {
   const closeSheet = () => setSheetOpen(false);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("#") || href.startsWith("/#")) {
+    if (href.startsWith("/#") && window.location.pathname === '/') {
       e.preventDefault();
-      const targetId = href.substring(href.lastIndexOf("#") + 1);
+      const targetId = href.substring(2);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: "smooth" });
       }
     }
+    // For other cases, like navigating to /contact or /#about from another page,
+    // let Next's <Link> component handle it.
     if (isSheetOpen) {
       closeSheet();
     }

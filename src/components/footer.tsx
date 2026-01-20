@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import { Github, Linkedin, Twitter, MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "./ui/button";
@@ -11,7 +12,7 @@ import {
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-900 text-gray-300">
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About Us Section */}

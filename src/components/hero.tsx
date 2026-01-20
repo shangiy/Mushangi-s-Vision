@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -55,7 +56,7 @@ export function Hero() {
                 <Link href="#projects">View My Work</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="#contact">Get in Touch</Link>
+                <Link href="/contact">Get in Touch</Link>
               </Button>
             </div>
           </div>
