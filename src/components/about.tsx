@@ -16,14 +16,14 @@ import { cn } from "@/lib/utils";
 export function About() {
   return (
     <Section id="about" className="bg-secondary">
-      <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div className="grid grid-cols-2 gap-4 md:gap-12 items-center mb-16">
         <div className="w-full flex items-center justify-center">
           <div className="w-full max-w-lg aspect-square relative">
             <SplineScene />
           </div>
         </div>
         <div className="flex flex-col justify-center">
-            <div className="flex items-center justify-center md:justify-start gap-4">
+            <div className="flex items-center justify-start gap-4">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger>
