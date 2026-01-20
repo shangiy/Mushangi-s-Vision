@@ -16,7 +16,7 @@ import {
 const resumeData = {
   name: "Mushangi",
   experience:
-    "5+ years as a full-stack developer at various tech companies. Led the development of a major e-commerce platform, increasing sales by 20%. Specialized in building scalable microservices and responsive front-end interfaces. Mentored junior developers and improved team coding standards.",
+    "2+ years as a full-stack developer at various tech companies. Led the development of an e-commerce platform, increasing sales by 20%. Specialized in building scalable microservices and responsive front-end interfaces. I have learn several computer language and frameworks and practice by developing website have i have design using the knowledge i learn through resorces online like w3school.com and youtube. ",
   skills:
     "JavaScript, TypeScript, React, Next.js, Node.js, Python, Flask, SQL, MongoDB, Docker, AWS, UI/UX Design, Agile Methodologies",
 };
