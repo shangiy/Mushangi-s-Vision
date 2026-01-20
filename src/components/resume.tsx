@@ -18,7 +18,7 @@ const resumeData = {
   experience:
     "2+ years as a full-stack developer at various tech companies. Led the development of an e-commerce platform, increasing sales by 20%. Specialized in building scalable microservices and responsive front-end interfaces. I have learn several computer language and frameworks and practice by developing website have i have design using the knowledge i learn through resorces online like w3school.com and youtube. ",
   skills:
-    "JavaScript, TypeScript, React, Next.js, Node.js, Python, Flask, SQL, MongoDB, Docker, AWS, UI/UX Design, Agile Methodologies",
+    "JavaScript, TypeScript, React, Next.js, Node.js, Python Django, Flask framework , SQL, sqlite , MongoDB, Docker, firestore database ,Google cloud, firebase studio ,AWS, UI/UX Design, Agile Methodologies",
 };
 
 export function Resume() {
