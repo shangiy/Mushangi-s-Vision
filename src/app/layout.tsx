@@ -5,7 +5,7 @@ import { ScrollToTop } from "@/components/scroll-to-top";
 
 export const metadata: Metadata = {
   title: "Mushangi P portfolio",
-  description: "A portfolio for Mushangi-p-portfolio",
+  description: "A portfolio for Mushangi-Patrick AKA code+. Am an website Codersigner and IT System Developer",
 };
 
 export default function RootLayout({
