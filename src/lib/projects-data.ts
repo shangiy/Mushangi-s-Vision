@@ -79,7 +79,7 @@ This project was a great exercise in managing real-time data synchronization and
     tags: ["React Native", "Firebase", "Lottie"],
     imageUrls: ["/ludoGame-homepage.png", "/LudoGameboardLayout.png", "/game-Setup.png"],
     imageHints: ["ludo homepage", "ludo gameboard", "game setup"],
-    liveUrl: "https://shangludo-arena.onrender.com/",
+    liveUrl: "https://shangludo-arena.vercel.app/",
     githubUrl: "#",
   },
   {
