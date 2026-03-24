@@ -1,4 +1,5 @@
 
+
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { projectsData } from "@/lib/projects-data";
@@ -30,7 +31,7 @@ const ProjectCard = ({ project }: { project: typeof projectsData[0] }) => (
           {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
         </div>
         <CardDescription className="flex-grow mb-4">{project.description}
-         {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-4' || project.id === 'project-5' || project.id === 'project-6') && project.liveUrl !== '#' && (
+         {(project.id === 'project-1' || project.id === 'project-3' || project.id === 'project-4' || project.id === 'project-5' || project.id === 'project-6' || project.id === 'project-7') && project.liveUrl !== '#' && (
             <p className="mt-2 text-sm break-all">
                 <Link href={project.liveUrl} className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                     {project.liveUrl}

@@ -139,4 +139,22 @@ This project was a great opportunity to work with server-side scripting and data
     liveUrl: "https://shangiy.github.io/p5/",
     githubUrl: "https://shangiy.github.io/p5/",
   },
+  {
+    id: "project-7",
+    slug: "wonderful-food-supplements",
+    title: "Wonderful Food Supplements",
+    description: "A modern web application for a health and wellness brand, showcasing various food supplements with detailed information.",
+    longDescription: `
+This project is a dedicated platform for Wonderful Food Supplements. It features a clean, professional design aimed at building trust with customers seeking health and wellness products. \n\n Key features include: \n- **Product Showcase:** A clear presentation of various supplements with high-quality imagery. \n- **Detailed Information:** Each product section provides in-depth details about benefits and ingredients. \n- **Responsive Design:** Optimized for seamless browsing across mobile, tablet, and desktop devices. \n- **Modern Tech Stack:** Built with modern web technologies to ensure fast loading times and a smooth user experience.
+    `,
+    tags: ["Next.js", "React", "Tailwind CSS", "Responsive Design"],
+    imageUrls: [
+      "/wonderfulFood supplement1.png",
+      "/wonderfulFood supplement2.png",
+      "/wonderfulFood supplement3.png"
+    ],
+    imageHints: ["food supplement hero", "supplement products", "wellness brand"],
+    liveUrl: "https://wonderful-food-supplements.vercel.app/",
+    githubUrl: "#",
+  },
 ];
