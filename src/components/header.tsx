@@ -86,9 +86,14 @@ export function Header() {
           <div className="w-10 h-10 transition-transform group-hover:scale-110">
             <RotatingLogo />
           </div>
-          <span className="font-headline text-foreground tracking-tight hidden sm:inline-block">
-            MUSHANGI PATRICK
-          </span>
+          <div className="flex flex-col leading-none hidden sm:flex">
+            <span className="font-headline text-foreground tracking-widest text-[13px]">
+              MUSHANGI
+            </span>
+            <span className="font-headline text-primary tracking-tighter text-xs mt-0.5">
+              P
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation & Theme Toggle */}
@@ -208,4 +213,3 @@ export function Header() {
     </header>
   );
 }
-
