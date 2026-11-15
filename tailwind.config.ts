@@ -108,6 +108,10 @@ export default {
             '0%': { transform: 'translateX(0)' },
             '100%': { transform: 'translateX(-50%)' },
         },
+        'diagonal-scroll': {
+          '0%': { transform: 'translate(100vw, -100vh)' },
+          '100%': { transform: 'translate(-100vw, 100vh)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -116,6 +120,7 @@ export default {
         'spin-slow': 'spin 20s linear infinite',
         'marquee': 'marquee 30s linear infinite',
         'marquee-slow': 'marquee-slow 40s linear infinite',
+        'diagonal-scroll': 'diagonal-scroll 25s linear infinite',
       },
     },
   },

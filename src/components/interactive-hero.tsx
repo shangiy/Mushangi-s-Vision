@@ -59,9 +59,9 @@ export function InteractiveHero() {
         </h2>
       </div>
 
-      {/* Decorative Background Text */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-        <h1 className="font-headline text-[20vw] font-black leading-none text-black select-none whitespace-nowrap">
+      {/* Decorative Background Text - Animated Diagonally */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none overflow-hidden">
+        <h1 className="font-headline text-[20vw] font-black leading-none text-black select-none whitespace-nowrap animate-diagonal-scroll">
           MUSHANGI P
         </h1>
       </div>
