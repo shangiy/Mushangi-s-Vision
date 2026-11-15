@@ -96,9 +96,39 @@ export function InteractiveHero() {
       <div className="absolute bottom-8 left-8 z-50">
         <div className="flex flex-col gap-1">
           <span className="font-headline text-sm font-bold text-black uppercase tracking-widest">Patrick Mushangi</span>
-          <div className="flex flex-col leading-none">
-            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+          
+          <div className="relative">
+            {/* Back Layer (Solid Black) */}
+            <div className="flex flex-col leading-none text-black">
+              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+            </div>
+            
+            {/* Front Layer (Lime Green Stroked, Offset to create 3D extrusion) */}
+            <div 
+              className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none"
+              style={{ 
+                transform: 'translate(1.5px, -1.5px)',
+                WebkitTextStroke: '1px #a3e635',
+                color: 'transparent'
+              }}
+            >
+              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+            </div>
+
+            {/* Second Duplicate (Slightly offset white stroke for extra depth/glitch feel) */}
+            <div 
+              className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none opacity-30"
+              style={{ 
+                transform: 'translate(0.75px, -0.75px)',
+                WebkitTextStroke: '0.5px white',
+                color: 'transparent'
+              }}
+            >
+              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+            </div>
           </div>
         </div>
       </div>
