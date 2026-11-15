@@ -47,29 +47,26 @@ export function InteractiveHero() {
   const translateY = coords.y * 20;
 
   // Kinetic Stroke Width Calculation
-  // We calculate distance from the bottom-left corner where the text is (approx x:-1, y:1)
   const dist = Math.sqrt(Math.pow(coords.x - (-1), 2) + Math.pow(coords.y - 1, 2));
-  // Max distance in a -1 to 1 grid is roughly 2.82
   const maxDist = 2.82;
-  // Stroke width swells as distance decreases (as cursor moves closer)
   const kineticStrokeWidth = Math.max(0.5, 0.5 + (maxDist - dist) * 1.5);
 
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-[#a3e635] flex items-center cursor-default select-none"
+      className="relative h-screen w-full overflow-hidden bg-slate-950 flex items-center cursor-default select-none"
       style={{ perspective: '1000px' }}
     >
       {/* Minimalist Header Overlay */}
       <div className="absolute top-8 right-8 z-50 text-right">
-        <h2 className="font-headline text-xs md:text-sm font-bold tracking-[0.3em] text-black/80">
+        <h2 className="font-headline text-xs md:text-sm font-bold tracking-[0.3em] text-slate-400">
           INDEPENDENT PORTFOLIO / 2026
         </h2>
       </div>
 
       {/* Decorative Background Text - Animated Diagonally */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none overflow-hidden">
-        <h1 className="font-headline text-[20vw] font-black leading-none text-black select-none whitespace-nowrap animate-diagonal-scroll">
+      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
+        <h1 className="font-headline text-[20vw] font-black leading-none text-white select-none whitespace-nowrap animate-diagonal-scroll">
           MUSHANGI P
         </h1>
       </div>
@@ -87,7 +84,7 @@ export function InteractiveHero() {
               transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${translateX}px) translateY(${translateY}px)`,
             }}
           >
-            <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.2)]">
+            <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]">
               <Image
                 src="/hero-image.png"
                 alt="Mushangi Patrick Portrait"
@@ -103,11 +100,11 @@ export function InteractiveHero() {
       {/* Bottom UI Elements */}
       <div className="absolute bottom-8 left-8 z-50">
         <div className="flex flex-col gap-1">
-          <span className="font-headline text-sm font-bold text-black uppercase tracking-widest">Patrick Mushangi</span>
+          <span className="font-headline text-sm font-bold text-white uppercase tracking-widest">Patrick Mushangi</span>
           
           <div className="relative">
-            {/* Back Layer (Solid Black) */}
-            <div className="flex flex-col leading-none text-black">
+            {/* Back Layer (Solid Slate) */}
+            <div className="flex flex-col leading-none text-slate-300">
               <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
               <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
             </div>
@@ -147,7 +144,7 @@ export function InteractiveHero() {
           variant="outline"
           size="icon"
           onClick={() => setIsPaused(!isPaused)}
-          className="rounded-full bg-white/20 backdrop-blur-md border-black/10 hover:bg-[#a3e635] hover:text-black transition-all group"
+          className="rounded-full bg-slate-800/50 backdrop-blur-md border-white/10 text-white hover:bg-[#a3e635] hover:text-black transition-all group"
           title={isPaused ? "Resume Motion" : "Pause Motion"}
         >
           {isPaused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
@@ -156,7 +153,7 @@ export function InteractiveHero() {
       </div>
 
       {/* Gradient Vignette for Depth */}
-      <div className="absolute inset-0 pointer-events-none bg-radial-gradient from-transparent via-transparent to-black/5" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
     </section>
   );
 }
