@@ -81,7 +81,7 @@ export function InteractiveHero() {
           >
             <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.2)]">
               <Image
-                src="/Shangi%20clay%203.jpg"
+                src="/hero-image.png"
                 alt="Mushangi Patrick Portrait"
                 fill
                 className="object-contain"
@@ -97,8 +97,8 @@ export function InteractiveHero() {
         <div className="flex flex-col gap-1">
           <span className="font-headline text-sm font-bold text-black uppercase tracking-widest">Patrick Mushangi</span>
           <div className="flex flex-col leading-none">
-            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider">Full-Stack Developer &</span>
-            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider mt-0.5">Webapp Designer</span>
+            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
           </div>
         </div>
       </div>
