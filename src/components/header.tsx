@@ -92,16 +92,16 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation & Theme Toggle */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-2">
           {/* Nav Pill */}
-          <nav className="flex items-center gap-1 bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full px-2 py-1.5 shadow-2xl border border-white/10">
+          <nav className="flex items-center bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full px-1.5 py-1 shadow-2xl border border-white/10">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={cn(
-                  "text-[13px] font-bold px-4 py-1.5 rounded-full transition-all duration-200 uppercase tracking-wider",
+                  "text-[12px] font-bold px-2.5 py-1.5 rounded-full transition-all duration-200 uppercase tracking-wide",
                   link.isHome 
                     ? "bg-[#a3e635] text-black hover:bg-[#bef264]" 
                     : "text-white/80 hover:text-white hover:bg-white/10"
@@ -110,13 +110,13 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="w-[1px] h-4 bg-white/20 mx-2" />
+            <div className="w-[1px] h-4 bg-white/20 mx-1" />
             <a 
               href="/Mushangi's resume.pdf" 
               download 
-              className="flex items-center gap-1.5 text-[13px] font-bold px-4 py-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all uppercase tracking-wider"
+              className="flex items-center gap-1 text-[12px] font-bold px-2.5 py-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all uppercase tracking-wide"
             >
-              CV <Download className="w-3.5 h-3.5" />
+              CV <Download className="w-3 h-3" />
             </a>
           </nav>
 
@@ -125,7 +125,7 @@ export function Header() {
             <button
               onClick={() => setTheme("light")}
               className={cn(
-                "flex items-center gap-2 px-4 py-1.5 rounded-full transition-all duration-200 text-[12px] font-bold uppercase tracking-wider",
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 text-[11px] font-bold uppercase tracking-wide",
                 theme === "light" 
                   ? "bg-[#a3e635] text-black" 
                   : "text-white/60 hover:text-white"
@@ -137,7 +137,7 @@ export function Header() {
             <button
               onClick={() => setTheme("dark")}
               className={cn(
-                "flex items-center gap-2 px-4 py-1.5 rounded-full transition-all duration-200 text-[12px] font-bold uppercase tracking-wider",
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 text-[11px] font-bold uppercase tracking-wide",
                 theme === "dark" 
                   ? "bg-[#a3e635] text-black" 
                   : "text-white/60 hover:text-white"
@@ -208,3 +208,4 @@ export function Header() {
     </header>
   );
 }
+
