@@ -98,41 +98,41 @@ export function InteractiveHero() {
       </div>
 
       {/* Bottom UI Elements */}
-      <div className="absolute bottom-8 left-8 z-50">
-        <div className="flex flex-col gap-1">
-          <span className="font-headline text-sm font-bold text-white uppercase tracking-widest">Patrick Mushangi</span>
+      <div className="absolute bottom-12 left-8 z-50">
+        <div className="flex flex-col gap-2">
+          <span className="font-headline text-xl font-bold text-white uppercase tracking-widest">Patrick Mushangi</span>
           
           <div className="relative">
             {/* Back Layer (Solid Slate) */}
             <div className="flex flex-col leading-none text-slate-300">
-              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
             
             {/* Front Layer (Kinetic Outline - Lime Green) */}
             <div 
               className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none transition-[webkit-text-stroke-width] duration-75"
               style={{ 
-                transform: 'translate(1.5px, -1.5px)',
-                WebkitTextStroke: `${kineticStrokeWidth}px #a3e635`,
+                transform: 'translate(3px, -3px)',
+                WebkitTextStroke: `${kineticStrokeWidth * 2}px #a3e635`,
                 color: 'transparent'
               }}
             >
-              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
 
             {/* Third Layer (Slightly offset white stroke for extra depth/glitch feel) */}
             <div 
               className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none opacity-30 transition-[webkit-text-stroke-width] duration-75"
               style={{ 
-                transform: 'translate(0.75px, -0.75px)',
-                WebkitTextStroke: `${kineticStrokeWidth / 2}px white`,
+                transform: 'translate(1.5px, -1.5px)',
+                WebkitTextStroke: `${kineticStrokeWidth}px white`,
                 color: 'transparent'
               }}
             >
-              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-              <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
+              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
           </div>
         </div>
