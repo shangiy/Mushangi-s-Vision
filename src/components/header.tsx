@@ -72,8 +72,10 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 w-full z-[100] transition-all duration-300 py-4 px-4 md:px-8",
-        scrolled ? "py-2" : "py-4"
+        "fixed top-0 left-0 w-full z-[100] transition-all duration-500 ease-in-out px-4 md:px-8",
+        scrolled 
+          ? "py-3 bg-white/5 dark:bg-black/20 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)]" 
+          : "py-6 bg-transparent"
       )}
     >
       <div className="container mx-auto flex items-center justify-between">
@@ -87,7 +89,7 @@ export function Header() {
             <RotatingLogo />
           </div>
           <div className="flex flex-col leading-none hidden sm:flex">
-            <span className="font-headline text-foreground tracking-widest text-[13px]">
+            <span className="font-headline text-foreground tracking-widest text-[13px] uppercase">
               MUSHANGI
             </span>
             <span className="font-headline text-primary tracking-tighter text-xs mt-0.5">
@@ -97,100 +99,105 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation & Theme Toggle */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-4">
           {/* Nav Pill */}
-          <nav className="flex items-center bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full px-1.5 py-1 shadow-2xl border border-white/10">
+          <nav className="flex items-center bg-slate-900/40 dark:bg-slate-800/40 backdrop-blur-xl rounded-full px-2 py-1.5 shadow-xl border border-white/20 transition-all hover:bg-slate-900/60 dark:hover:bg-slate-800/60">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleLinkClick(e, link.href)}
                 className={cn(
-                  "text-[12px] font-bold px-2.5 py-1.5 rounded-full transition-all duration-200 uppercase tracking-wide",
+                  "text-[11px] font-bold px-3 py-2 rounded-full transition-all duration-300 uppercase tracking-widest",
                   link.isHome 
-                    ? "bg-[#a3e635] text-black hover:bg-[#bef264]" 
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                    ? "bg-[#a3e635] text-black hover:bg-[#bef264] shadow-[0_0_15px_rgba(163,230,53,0.5)]" 
+                    : "text-white/70 hover:text-white hover:bg-white/10"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="w-[1px] h-4 bg-white/20 mx-1" />
+            <div className="w-[1px] h-4 bg-white/20 mx-2" />
             <a 
               href="/Mushangi's resume.pdf" 
               download 
-              className="flex items-center gap-1 text-[12px] font-bold px-2.5 py-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all uppercase tracking-wide"
+              className="flex items-center gap-2 text-[11px] font-bold px-3 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all uppercase tracking-widest group"
             >
-              CV <Download className="w-3 h-3" />
+              CV <Download className="w-3 h-3 transition-transform group-hover:translate-y-0.5" />
             </a>
           </nav>
 
           {/* Theme Toggle Pill */}
-          <div className="flex items-center bg-slate-900/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full p-1 border border-white/10 shadow-2xl">
+          <div className="flex items-center bg-slate-900/40 dark:bg-slate-800/40 backdrop-blur-xl rounded-full p-1 border border-white/20 shadow-xl transition-all">
             <button
               onClick={() => setTheme("light")}
               className={cn(
-                "flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 text-[11px] font-bold uppercase tracking-wide",
+                "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-[10px] font-black uppercase tracking-widest",
                 theme === "light" 
-                  ? "bg-[#a3e635] text-black" 
-                  : "text-white/60 hover:text-white"
+                  ? "bg-[#a3e635] text-black shadow-[0_0_10px_rgba(163,230,53,0.4)]" 
+                  : "text-white/50 hover:text-white"
               )}
             >
               <Sun className="w-3.5 h-3.5" />
-              <span>Light</span>
+              <span className="hidden lg:inline">Light</span>
             </button>
             <button
               onClick={() => setTheme("dark")}
               className={cn(
-                "flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-200 text-[11px] font-bold uppercase tracking-wide",
+                "flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 text-[10px] font-black uppercase tracking-widest",
                 theme === "dark" 
-                  ? "bg-[#a3e635] text-black" 
-                  : "text-white/60 hover:text-white"
+                  ? "bg-[#a3e635] text-black shadow-[0_0_10px_rgba(163,230,53,0.4)]" 
+                  : "text-white/50 hover:text-white"
               )}
             >
               <Moon className="w-3.5 h-3.5" />
-              <span>Dark</span>
+              <span className="hidden lg:inline">Dark</span>
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden flex items-center gap-2">
-            <div className="bg-slate-900/90 rounded-full p-1 flex items-center shadow-lg">
+        <div className="md:hidden flex items-center gap-3">
+            <div className="bg-slate-900/80 backdrop-blur-md rounded-full p-1 flex items-center shadow-lg border border-white/10">
                 <button
                     onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="p-2 rounded-full text-[#a3e635]"
+                    className="p-2.5 rounded-full text-[#a3e635] transition-transform active:scale-90"
                 >
                     {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 </button>
             </div>
           <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="rounded-full bg-background/80 backdrop-blur-sm border-2">
-                <Menu className="h-6 w-6" />
+              <Button variant="outline" size="icon" className="rounded-full bg-white/10 backdrop-blur-md border-white/20 hover:bg-white/20 transition-all h-11 w-11 shadow-inner">
+                <Menu className="h-6 w-6 text-foreground" />
                 <span className="sr-only">Open navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col gap-8 py-8">
+            <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-2xl border-l border-white/10">
+              <div className="flex flex-col gap-10 py-10">
                 <Link
                   href="/"
                   onClick={handleLogoClick}
-                  className="flex items-center gap-2 font-bold text-xl"
+                  className="flex items-center gap-3 font-bold text-2xl"
                 >
-                   <div className="w-10 h-10">
+                   <div className="w-12 h-12">
                      <RotatingLogo />
                    </div>
-                  <span className="font-headline tracking-tighter">MUSHANGI P</span>
+                  <div className="flex flex-col">
+                    <span className="font-headline tracking-widest text-lg uppercase">MUSHANGI</span>
+                    <span className="font-headline text-primary text-xs -mt-1">P</span>
+                  </div>
                 </Link>
-                <nav className="flex flex-col gap-2">
+                <nav className="flex flex-col gap-3">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        "text-lg font-bold px-4 py-3 rounded-xl transition-colors uppercase tracking-widest",
-                        link.isHome ? "bg-primary text-primary-foreground" : "hover:bg-muted"
+                        "text-lg font-bold px-6 py-4 rounded-2xl transition-all uppercase tracking-widest border border-transparent",
+                        link.isHome 
+                          ? "bg-[#a3e635] text-black shadow-lg shadow-[#a3e635]/20" 
+                          : "hover:bg-white/5 hover:border-white/10"
                       )}
                       onClick={(e) => handleLinkClick(e, link.href)}
                     >
@@ -200,7 +207,7 @@ export function Header() {
                   <a 
                     href="/Mushangi's resume.pdf" 
                     download 
-                    className="flex items-center justify-between text-lg font-bold px-4 py-3 rounded-xl hover:bg-muted transition-colors uppercase tracking-widest"
+                    className="flex items-center justify-between text-lg font-bold px-6 py-4 rounded-2xl hover:bg-white/5 hover:border-white/10 transition-all uppercase tracking-widest"
                   >
                     Download CV <Download className="w-5 h-5" />
                   </a>
