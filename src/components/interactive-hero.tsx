@@ -46,6 +46,14 @@ export function InteractiveHero() {
   const translateX = coords.x * 20;
   const translateY = coords.y * 20;
 
+  // Kinetic Stroke Width Calculation
+  // We calculate distance from the bottom-left corner where the text is (approx x:-1, y:1)
+  const dist = Math.sqrt(Math.pow(coords.x - (-1), 2) + Math.pow(coords.y - 1, 2));
+  // Max distance in a -1 to 1 grid is roughly 2.82
+  const maxDist = 2.82;
+  // Stroke width swells as distance decreases (as cursor moves closer)
+  const kineticStrokeWidth = Math.max(0.5, 0.5 + (maxDist - dist) * 1.5);
+
   return (
     <section 
       ref={containerRef}
@@ -104,12 +112,12 @@ export function InteractiveHero() {
               <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
             </div>
             
-            {/* Front Layer (Lime Green Stroked, Offset to create 3D extrusion) */}
+            {/* Front Layer (Kinetic Outline - Lime Green) */}
             <div 
-              className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none"
+              className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none transition-[webkit-text-stroke-width] duration-75"
               style={{ 
                 transform: 'translate(1.5px, -1.5px)',
-                WebkitTextStroke: '1px #a3e635',
+                WebkitTextStroke: `${kineticStrokeWidth}px #a3e635`,
                 color: 'transparent'
               }}
             >
@@ -117,12 +125,12 @@ export function InteractiveHero() {
               <span className="font-body text-[10px] md:text-xs font-bold uppercase tracking-wider mt-0.5">WEBAPP DESIGNER</span>
             </div>
 
-            {/* Second Duplicate (Slightly offset white stroke for extra depth/glitch feel) */}
+            {/* Third Layer (Slightly offset white stroke for extra depth/glitch feel) */}
             <div 
-              className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none opacity-30"
+              className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none opacity-30 transition-[webkit-text-stroke-width] duration-75"
               style={{ 
                 transform: 'translate(0.75px, -0.75px)',
-                WebkitTextStroke: '0.5px white',
+                WebkitTextStroke: `${kineticStrokeWidth / 2}px white`,
                 color: 'transparent'
               }}
             >
