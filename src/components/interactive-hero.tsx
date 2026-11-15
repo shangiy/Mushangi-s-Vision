@@ -49,7 +49,7 @@ export function InteractiveHero() {
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-[#a3e635] flex items-center justify-center cursor-default select-none"
+      className="relative h-screen w-full overflow-hidden bg-[#a3e635] flex items-center cursor-default select-none"
       style={{ perspective: '1000px' }}
     >
       {/* Minimalist Header Overlay */}
@@ -66,21 +66,29 @@ export function InteractiveHero() {
         </h1>
       </div>
 
-      {/* Interactive 3D Portrait */}
-      <div 
-        className="relative z-10 w-full max-w-md md:max-w-xl transition-transform duration-200 ease-out will-change-transform"
-        style={{
-          transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${translateX}px) translateY(${translateY}px)`,
-        }}
-      >
-        <div className="relative aspect-[3/4] w-full drop-shadow-[0_35px_35px_rgba(0,0,0,0.25)]">
-          <Image
-            src="/hero-image.png"
-            alt="Mushangi Patrick Portrait"
-            fill
-            className="object-contain"
-            priority
-          />
+      {/* Content Grid */}
+      <div className="container relative z-10 mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 items-center h-full">
+        {/* Left Side (Empty or for future text) */}
+        <div className="hidden md:block"></div>
+
+        {/* Right Side: Interactive 3D Portrait */}
+        <div className="flex justify-center md:justify-end">
+          <div 
+            className="relative w-full max-w-[280px] md:max-w-[400px] transition-transform duration-200 ease-out will-change-transform"
+            style={{
+              transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${translateX}px) translateY(${translateY}px)`,
+            }}
+          >
+            <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.2)]">
+              <Image
+                src="/hero-image.png"
+                alt="Mushangi Patrick Portrait"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </div>
         </div>
       </div>
 
