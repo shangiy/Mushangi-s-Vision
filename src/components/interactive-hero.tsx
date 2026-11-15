@@ -6,6 +6,149 @@ import { Pause, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
+// --- Particle Background Component ---
+function ParticleBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let animationFrameId: number;
+    let particles: Particle[] = [];
+    let w: number, h: number;
+    const mouse = { x: -2000, y: -2000 };
+
+    class Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.size = Math.random() * 1.5 + 0.5;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
+      }
+
+      draw() {
+        if (!ctx) return;
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = 'white';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0; // reset for lines
+      }
+    }
+
+    const init = () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+      particles = [];
+      const density = (w * h) / 9000;
+      const count = Math.min(Math.floor(density), 150);
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+      }
+    };
+
+    const animate = () => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, w, h);
+
+      const connectionDist = 120;
+      const mouseDist = 200;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+
+        // Connect particles to each other
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < connectionDist) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist / connectionDist)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+
+        // Connect particles to mouse
+        const mdx = p.x - mouse.x;
+        const mdy = p.y - mouse.y;
+        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+
+        if (mdist < mouseDist) {
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(255, 255, 255, ${0.3 * (1 - mdist / mouseDist)})`;
+          ctx.lineWidth = 0.8;
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.stroke();
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        mouse.x = e.touches[0].clientX;
+        mouse.y = e.touches[0].clientY;
+      }
+    };
+
+    const handleResize = () => {
+      init();
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('resize', handleResize);
+
+    init();
+    animate();
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('resize', handleResize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0" />;
+}
+
 export function InteractiveHero() {
   const [isPaused, setIsPaused] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
@@ -54,9 +197,12 @@ export function InteractiveHero() {
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-slate-950 flex items-center cursor-default select-none"
+      className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 flex items-center cursor-default select-none"
       style={{ perspective: '1000px' }}
     >
+      {/* Particle Network Canvas Background */}
+      <ParticleBackground />
+
       {/* Minimalist Header Overlay */}
       <div className="absolute top-8 right-8 z-50 text-right">
         <h2 className="font-headline text-xs md:text-sm font-bold tracking-[0.3em] text-slate-400">
@@ -65,14 +211,14 @@ export function InteractiveHero() {
       </div>
 
       {/* Decorative Background Text - Animated Diagonally */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden z-10">
         <h1 className="font-headline text-[20vw] font-black leading-none text-white select-none whitespace-nowrap animate-diagonal-scroll">
           MUSHANGI P
         </h1>
       </div>
 
       {/* Content Grid */}
-      <div className="container relative z-10 mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 items-center h-full">
+      <div className="container relative z-20 mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 items-center h-full">
         {/* Left Side (Empty or for future text) */}
         <div className="hidden md:block"></div>
 
@@ -153,7 +299,7 @@ export function InteractiveHero() {
       </div>
 
       {/* Gradient Vignette for Depth */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-30" />
     </section>
   );
 }
