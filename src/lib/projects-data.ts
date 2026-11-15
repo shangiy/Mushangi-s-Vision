@@ -36,7 +36,7 @@ The backend is powered by Node.js and connects to a PostgreSQL database, ensurin
       "/alpha-Admin-Dashboard.png",
     ],
     imageHints: ["ecommerce system", "ecommerce laptop", "admin dashboard"],
-    liveUrl: "https://alpha-plumbing-electricals-ltd.vercel.app/",
+    liveUrl: "https://www.alphaelectricalsplumbingltd.com/",
     githubUrl: "#",
   },
   {
