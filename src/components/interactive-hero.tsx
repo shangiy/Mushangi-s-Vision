@@ -96,7 +96,10 @@ export function InteractiveHero() {
       <div className="absolute bottom-8 left-8 z-50">
         <div className="flex flex-col gap-1">
           <span className="font-headline text-sm font-bold text-black uppercase tracking-widest">Patrick Mushangi</span>
-          <span className="font-body text-xs text-black/60 uppercase tracking-wider">Full-Stack Developer & Designer</span>
+          <div className="flex flex-col leading-none">
+            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider">Full-Stack Developer &</span>
+            <span className="font-body text-[10px] md:text-xs text-black/60 uppercase tracking-wider mt-0.5">Webapp Designer</span>
+          </div>
         </div>
       </div>
 
