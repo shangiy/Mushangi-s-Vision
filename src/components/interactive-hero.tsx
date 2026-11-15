@@ -81,7 +81,7 @@ export function InteractiveHero() {
           >
             <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.2)]">
               <Image
-                src="/Shangi clay 3.png"
+                src="/Shangi clay 3.jpg"
                 alt="Mushangi Patrick Portrait"
                 fill
                 className="object-contain"
