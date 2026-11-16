@@ -65,7 +65,7 @@ export function About() {
            <BrutalistMarquee />
         </div>
 
-        <div className="container relative z-10 px-4 md:px-6">
+        <div className="container relative px-4 md:px-6">
           <div className="grid gap-12 md:grid-cols-2 items-center">
             {/* Left side text - Top layer (z-20) */}
             <div className="relative z-20 animate-in fade-in slide-in-from-left-12 duration-1000 bg-secondary/80 backdrop-blur-sm p-6 rounded-2xl md:bg-transparent md:backdrop-blur-none md:p-0">
