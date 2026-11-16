@@ -192,8 +192,6 @@ export function InteractiveHero() {
   const maxDist = 2.82;
   const kineticStrokeWidth = Math.max(0.5, 0.5 + (maxDist - dist) * 1.5);
 
-  const marqueeText = "WEBSITE DESIGN * SYSTEM DEVELOPER * SEO * FULL-STACK DEV * WEBSITE DESIGN * SYSTEM DEVELOPER * SEO * FULL-STACK DEV *";
-
   return (
     <section 
       ref={containerRef}
@@ -215,23 +213,6 @@ export function InteractiveHero() {
         <h1 className="font-headline text-[20vw] font-black leading-none text-white select-none whitespace-nowrap animate-diagonal-scroll">
           MUSHANGI P
         </h1>
-      </div>
-
-      {/* Brutalist Marquee Banner - Behind the Image */}
-      <div className="absolute inset-0 z-15 flex items-center justify-center pointer-events-none overflow-hidden">
-        <div 
-          className="w-[200%] h-24 md:h-32 bg-[#a3e635] flex items-center overflow-hidden rotate-[-8deg] translate-y-[-10%] sm:translate-y-0"
-          style={{ transform: 'rotate(-8deg) skewX(-10deg)' }}
-        >
-          <div className="flex whitespace-nowrap animate-marquee">
-             <span className="font-headline text-4xl md:text-6xl font-black text-black uppercase tracking-tighter px-4 py-2">
-                {marqueeText}
-             </span>
-             <span className="font-headline text-4xl md:text-6xl font-black text-black uppercase tracking-tighter px-4 py-2">
-                {marqueeText}
-             </span>
-          </div>
-        </div>
       </div>
 
       {/* Content Grid */}
@@ -320,4 +301,3 @@ export function InteractiveHero() {
     </section>
   );
 }
-
