@@ -54,7 +54,7 @@ Key features include:
 - **Secure Infrastructure:** Leveraging PostgreSQL for reliable data management and Node.js for specialized server-side tasks.
     `,
     tags: ["Vite", "JavaScript", "Supabase", "PostgreSQL", "Node.js"],
-    imageUrls: ["https://picsum.photos/seed/pakabet/600/400"],
+    imageUrls: ["/pakabet.png"],
     imageHints: ["betting platform dashboard"],
     liveUrl: "https://pakabetcom.vercel.app/",
     githubUrl: "#",
