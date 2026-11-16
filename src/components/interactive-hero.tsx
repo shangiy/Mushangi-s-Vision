@@ -203,8 +203,8 @@ export function InteractiveHero() {
 
       {/* Minimalist Header Overlay */}
       <div className="absolute top-8 right-8 z-50 text-right">
-        <h2 className="font-headline text-xs md:text-sm font-bold tracking-[0.3em] text-slate-400">
-          INDEPENDENT PORTFOLIO / 2026
+        <h2 className="font-headline text-xs md:text-sm font-bold tracking-[0.3em] text-slate-400 uppercase">
+          Portfolio | 2026
         </h2>
       </div>
 
