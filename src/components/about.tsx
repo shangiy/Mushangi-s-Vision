@@ -58,14 +58,16 @@ export function About() {
         </div>
       </section>
 
-      {/* Marquee Banner as a Separator */}
-      <BrutalistMarquee />
+      {/* Bottom part of About - About Me Details with Marquee behind */}
+      <section className="relative w-full py-16 md:py-24 lg:py-32 bg-secondary overflow-hidden">
+        {/* The Marquee as a background layer passing behind content */}
+        <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 pointer-events-none opacity-80 md:opacity-100">
+           <BrutalistMarquee />
+        </div>
 
-      {/* Bottom part of About - About Me Details */}
-      <section className="w-full py-16 md:py-24 lg:py-32 bg-secondary">
-        <div className="container px-4 md:px-6">
+        <div className="container relative z-10 px-4 md:px-6">
           <div className="grid gap-12 md:grid-cols-2 items-center">
-            <div className="animate-in fade-in slide-in-from-left-12 duration-1000">
+            <div className="animate-in fade-in slide-in-from-left-12 duration-1000 bg-secondary/80 backdrop-blur-sm p-6 rounded-2xl md:bg-transparent md:backdrop-blur-none md:p-0">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About Me
               </h2>
@@ -82,14 +84,18 @@ export function About() {
                     </a>
                 </div>
             </div>
-            <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000">
-               <Image
-                src="/about-image.png"
-                alt="About me"
-                width={400}
-                height={400}
-                className="rounded-full object-cover aspect-square shadow-lg border-4 border-background"
-              />
+            <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000 relative z-20">
+               <div className="relative">
+                  {/* Decorative backdrop for the image to make it pop against the marquee */}
+                  <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full z-0" />
+                  <Image
+                    src="/about-image.png"
+                    alt="About me"
+                    width={400}
+                    height={400}
+                    className="relative z-10 rounded-full object-cover aspect-square shadow-2xl border-4 border-background"
+                  />
+               </div>
             </div>
           </div>
         </div>

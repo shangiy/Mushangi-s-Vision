@@ -18,10 +18,10 @@ export function BrutalistMarquee() {
   const marqueeContent = services.join(" * ") + " * ";
   
   return (
-    <div className="relative w-full h-32 md:h-48 bg-secondary overflow-hidden flex items-center z-30">
+    <div className="relative w-full h-32 md:h-48 overflow-hidden flex items-center">
       {/* Tilt Wrapper */}
       <div 
-        className="w-[200%] h-24 md:h-32 bg-[#a3e635] flex items-center overflow-hidden rotate-[4deg] scale-110 origin-center shadow-2xl"
+        className="w-[200%] h-24 md:h-32 bg-[#a3e635] flex items-center overflow-hidden rotate-[4deg] scale-110 origin-center shadow-[0_0_50px_rgba(163,230,53,0.3)]"
         style={{ transform: 'rotate(4deg) skewX(-10deg)' }}
       >
         <div 
@@ -40,8 +40,8 @@ export function BrutalistMarquee() {
         </div>
       </div>
 
-      {/* Control Button */}
-      <div className="absolute top-1/2 right-8 -translate-y-1/2 z-40">
+      {/* Control Button - Hidden when used as a pure background layer */}
+      <div className="absolute top-1/2 right-8 -translate-y-1/2 z-40 pointer-events-auto">
         <Button
           variant="outline"
           size="icon"
