@@ -56,6 +56,7 @@ function ParticleBackground() {
     }
 
     const init = () => {
+      if (typeof window === 'undefined') return;
       w = window.innerWidth;
       h = window.innerHeight;
       canvas.width = w;
@@ -159,7 +160,6 @@ export function InteractiveHero() {
       if (isPaused) return;
 
       const { innerWidth, innerHeight } = window;
-      // Calculate normalized coordinates (-1 to 1)
       const x = (e.clientX - innerWidth / 2) / (innerWidth / 2);
       const y = (e.clientY - innerHeight / 2) / (innerHeight / 2);
       
@@ -183,21 +183,21 @@ export function InteractiveHero() {
     };
   }, [isPaused]);
 
-  // Max tilt angles
-  const tiltX = coords.y * 15; // Rotate around X axis based on Y movement
-  const tiltY = coords.x * -15; // Rotate around Y axis based on X movement
+  const tiltX = coords.y * 15;
+  const tiltY = coords.x * -15;
   const translateX = coords.x * 20;
   const translateY = coords.y * 20;
 
-  // Kinetic Stroke Width Calculation
   const dist = Math.sqrt(Math.pow(coords.x - (-1), 2) + Math.pow(coords.y - 1, 2));
   const maxDist = 2.82;
   const kineticStrokeWidth = Math.max(0.5, 0.5 + (maxDist - dist) * 1.5);
 
+  const marqueeText = "WEBSITE DESIGN * SYSTEM DEVELOPER * SEO * FULL-STACK DEV * WEBSITE DESIGN * SYSTEM DEVELOPER * SEO * FULL-STACK DEV *";
+
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 flex items-center cursor-default select-none"
+      className="relative h-screen w-full overflow-hidden bg-slate-950 flex items-center cursor-default select-none"
       style={{ perspective: '1000px' }}
     >
       {/* Particle Network Canvas Background */}
@@ -215,6 +215,23 @@ export function InteractiveHero() {
         <h1 className="font-headline text-[20vw] font-black leading-none text-white select-none whitespace-nowrap animate-diagonal-scroll">
           MUSHANGI P
         </h1>
+      </div>
+
+      {/* Brutalist Marquee Banner - Behind the Image */}
+      <div className="absolute inset-0 z-15 flex items-center justify-center pointer-events-none overflow-hidden">
+        <div 
+          className="w-[200%] h-24 md:h-32 bg-[#a3e635] flex items-center overflow-hidden rotate-[-8deg] translate-y-[-10%] sm:translate-y-0"
+          style={{ transform: 'rotate(-8deg) skewX(-10deg)' }}
+        >
+          <div className="flex whitespace-nowrap animate-marquee">
+             <span className="font-headline text-4xl md:text-6xl font-black text-black uppercase tracking-tighter px-4 py-2">
+                {marqueeText}
+             </span>
+             <span className="font-headline text-4xl md:text-6xl font-black text-black uppercase tracking-tighter px-4 py-2">
+                {marqueeText}
+             </span>
+          </div>
+        </div>
       </div>
 
       {/* Content Grid */}
@@ -251,8 +268,8 @@ export function InteractiveHero() {
           <div className="relative">
             {/* Back Layer (Solid Slate) */}
             <div className="flex flex-col leading-none text-slate-300">
-              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
+              <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
             
             {/* Front Layer (Kinetic Outline - Lime Green) */}
@@ -264,8 +281,8 @@ export function InteractiveHero() {
                 color: 'transparent'
               }}
             >
-              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
+              <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
 
             {/* Third Layer (Slightly offset white stroke for extra depth/glitch feel) */}
@@ -277,8 +294,8 @@ export function InteractiveHero() {
                 color: 'transparent'
               }}
             >
-              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
-              <span className="font-body text-3xl md:text-5xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
+              <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
+              <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
           </div>
         </div>
@@ -303,3 +320,4 @@ export function InteractiveHero() {
     </section>
   );
 }
+
