@@ -1,20 +1,39 @@
+'use client';
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Section } from "@/components/section";
-import { SplineScene } from "./spline-scene";
-import { Globe } from "lucide-react";
+import { Globe, ArrowRight } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Button, buttonVariants } from "./ui/button";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { BrutalistMarquee } from "./brutalist-marquee";
+import { SplineScene } from "./spline-scene";
 
 export function About() {
+  const [coords, setCoords] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (typeof window === 'undefined') return;
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX - innerWidth / 2) / (innerWidth / 2);
+      const y = (e.clientY - innerHeight / 2) / (innerHeight / 2);
+      setCoords({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const dist = Math.sqrt(Math.pow(coords.x, 2) + Math.pow(coords.y, 2));
+  const maxDist = 1.414; // sqrt(1^2 + 1^2)
+  const kineticStrokeWidth = Math.max(0.5, 1.5 * (maxDist - dist));
+
   return (
     <div id="about">
       {/* Top part of About - AI Enthusiast & Dev */}
@@ -69,9 +88,21 @@ export function About() {
           <div className="grid gap-12 md:grid-cols-2 items-center">
             {/* Left side text - Top layer (z-20) */}
             <div className="relative z-20 animate-in fade-in slide-in-from-left-12 duration-1000 bg-secondary/80 backdrop-blur-sm p-6 rounded-2xl md:bg-transparent md:backdrop-blur-none md:p-0">
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                About Me
-              </h2>
+              <div className="relative mb-4 group">
+                <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-foreground">
+                  About Me
+                </h2>
+                <h2 
+                  className="absolute inset-0 font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl select-none pointer-events-none transition-[webkit-text-stroke-width] duration-75"
+                  style={{ 
+                    transform: 'translate(2px, -2px)',
+                    WebkitTextStroke: `${kineticStrokeWidth}px #a3e635`,
+                    color: 'transparent'
+                  }}
+                >
+                  About Me
+                </h2>
+              </div>
               <p className="mt-4 text-muted-foreground md:text-lg">
                 I'm a passionate and detail-oriented full-stack developer with a knack for building elegant and user-friendly applications. With a background in both design and engineering, I bridge the gap between aesthetics and functionality.
               </p>
