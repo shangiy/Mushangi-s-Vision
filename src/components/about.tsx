@@ -58,16 +58,17 @@ export function About() {
         </div>
       </section>
 
-      {/* Bottom part of About - About Me Details with Marquee behind */}
+      {/* Bottom part of About - About Me Details with Marquee behind text and in front of image */}
       <section className="relative w-full py-16 md:py-24 lg:py-32 bg-secondary overflow-hidden">
-        {/* The Marquee as a background layer passing behind content */}
-        <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-0 pointer-events-none opacity-80 md:opacity-100">
+        {/* The Marquee - Middle layer (z-10) */}
+        <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 z-10 pointer-events-none opacity-80 md:opacity-100">
            <BrutalistMarquee />
         </div>
 
         <div className="container relative z-10 px-4 md:px-6">
           <div className="grid gap-12 md:grid-cols-2 items-center">
-            <div className="animate-in fade-in slide-in-from-left-12 duration-1000 bg-secondary/80 backdrop-blur-sm p-6 rounded-2xl md:bg-transparent md:backdrop-blur-none md:p-0">
+            {/* Left side text - Top layer (z-20) */}
+            <div className="relative z-20 animate-in fade-in slide-in-from-left-12 duration-1000 bg-secondary/80 backdrop-blur-sm p-6 rounded-2xl md:bg-transparent md:backdrop-blur-none md:p-0">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 About Me
               </h2>
@@ -84,9 +85,10 @@ export function About() {
                     </a>
                 </div>
             </div>
-            <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000 relative z-20">
+            {/* Right side image - Bottom layer (z-0) */}
+            <div className="flex justify-center animate-in fade-in slide-in-from-right-12 duration-1000 relative z-0">
                <div className="relative">
-                  {/* Decorative backdrop for the image to make it pop against the marquee */}
+                  {/* Decorative backdrop for the image */}
                   <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full z-0" />
                   <Image
                     src="/about-image.png"
