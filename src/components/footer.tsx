@@ -102,7 +102,7 @@ export function Footer() {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <Link href="https://mushangis-portfolio.onrender.com/" target="_blank" className="font-bold text-primary hover:underline">
+                      <Link href="https://mushangi-s-vision.vercel.app/" target="_blank" className="font-bold text-primary hover:underline">
                         Coder+
                       </Link>
                     </TooltipTrigger>

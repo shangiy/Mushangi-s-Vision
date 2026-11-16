@@ -82,7 +82,7 @@ export function Resume() {
                         <Mail size={16} /> <span>mushangip0@gmail.com</span>
                         </div>
                         <div className="flex items-center gap-3">
-                        <Globe size={16} /> <Link href="https://mushangis-portfolio.onrender.com/" className="text-cyan-400 hover:underline break-all" target="_blank">https://mushangis-portfolio.onrender.com/</Link>
+                        <Globe size={16} /> <Link href="https://mushangi-s-vision.vercel.app/" className="text-cyan-400 hover:underline break-all" target="_blank">https://mushangi-s-vision.vercel.app/</Link>
                         </div>
                     </div>
                     <div className="mt-8">
@@ -108,7 +108,7 @@ export function Resume() {
                                 <ul className="list-disc list-inside text-sm mt-2 space-y-1">
                                 <li>Built systems interacting with SQL databases for authentication, data storage, and content management.</li>
                                 <li>Designed modern UI/UX layouts using best design practices.</li>
-                                <li>Delivered responsive websites optimized for mobile and desktop. (Checkout my portfolio link onrender.com)</li>
+                                <li>Delivered responsive websites optimized for mobile and desktop. (Checkout my portfolio link vercel.app)</li>
                                 </ul>
                             </div>
                         </div>
@@ -130,7 +130,7 @@ export function Resume() {
                             <ul className="list-disc list-inside text-sm space-y-1">
                                 <li>Built portfolio sites, business sites, and system-driven web apps.</li>
                                 <li>Integrated SQL databases for dynamic content and user management.</li>
-                                <li>developed a web game that plays in a browser, to continue to learn the Unity game engine. <Link href="https://mushangis-portfolio.onrender.com/" className="text-primary font-semibold hover:underline" target="_blank">(it loads a bit!)</Link></li>
+                                <li>developed a web game that plays in a browser, to continue to learn the Unity game engine. <Link href="https://mushangi-s-vision.vercel.app/" className="text-primary font-semibold hover:underline" target="_blank">(it loads a bit!)</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ export function Resume() {
                             <Mail size={16} /> <span>mushangip0@gmail.com</span>
                             </div>
                             <div className="flex items-center gap-3">
-                            <Globe size={16} /> <Link href="https://mushangis-portfolio.onrender.com/" className="text-cyan-400 hover:underline break-all" target="_blank">https://mushangis-portfolio.onrender.com/</Link>
+                            <Globe size={16} /> <Link href="https://mushangi-s-vision.vercel.app/" className="text-cyan-400 hover:underline break-all" target="_blank">https://mushangi-s-vision.vercel.app/</Link>
                             </div>
                         </div>
                         <div className="mt-8">
