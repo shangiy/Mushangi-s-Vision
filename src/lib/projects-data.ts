@@ -40,6 +40,26 @@ The backend is powered by Node.js and connects to a PostgreSQL database, ensurin
     githubUrl: "#",
   },
   {
+    id: "project-8",
+    slug: "pakabet-website",
+    title: "Pakabet website",
+    description: "A high-performance sports betting and gaming platform featuring real-time updates and a modern fintech UI.",
+    longDescription: `
+Pakabet is a cutting-edge sports betting and gaming platform. It utilizes Vite for an ultra-fast frontend and Supabase for real-time backend functionality. The system is designed to handle high-concurrency gaming data, providing users with a seamless and secure experience. 
+
+Key features include:
+- **Real-time Updates:** Live tracking of sports matches and instant odds adjustments.
+- **Gaming Suite:** Integration of popular crash games like Aviator with real-time multiplayer state.
+- **Modern Tech Stack:** Built with Vite for performance and Supabase for scalable backend services.
+- **Secure Infrastructure:** Leveraging PostgreSQL for reliable data management and Node.js for specialized server-side tasks.
+    `,
+    tags: ["Vite", "JavaScript", "Supabase", "PostgreSQL", "Node.js"],
+    imageUrls: ["https://picsum.photos/seed/pakabet/600/400"],
+    imageHints: ["betting platform dashboard"],
+    liveUrl: "https://pakabetcom.vercel.app/",
+    githubUrl: "#",
+  },
+  {
     id: "project-2",
     slug: "banking-mobile-app",
     title: "Banking Mobile-App",
