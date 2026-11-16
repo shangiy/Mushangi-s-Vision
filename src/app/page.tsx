@@ -1,6 +1,5 @@
 import { Header } from "@/components/header";
 import { InteractiveHero } from "@/components/interactive-hero";
-import { BrutalistMarquee } from "@/components/brutalist-marquee";
 import { About } from "@/components/about";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
@@ -15,7 +14,6 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <InteractiveHero />
-        <BrutalistMarquee />
         <About />
         <Projects />
         <SkillsMarquee />
