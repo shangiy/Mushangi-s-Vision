@@ -1,12 +1,46 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { PhoneCall } from 'lucide-react';
+import { 
+  SiNextdotjs, 
+  SiNodedotjs, 
+  SiTypescript, 
+  SiReact, 
+  SiTailwindcss, 
+  SiPython, 
+  SiPostgresql, 
+  SiMongodb, 
+  SiFirebase, 
+  SiGit, 
+  SiGithub, 
+  SiFigma, 
+  SiVercel, 
+  SiDocker, 
+  SiAmazonwebservices 
+} from '@icons-pack/react-simple-icons';
 
 /**
  * @fileOverview A high-performance WebGL hero section with interactive hexagonal mesh.
- * Replaces the previous SkillsMarquee with a futuristic "Digital Products" section.
+ * Features a smooth technology marquee moving left-to-right inside a glass card.
  */
+
+const techIcons = [
+  { icon: SiNextdotjs, name: 'Next.js' },
+  { icon: SiNodedotjs, name: 'Node.js' },
+  { icon: SiTypescript, name: 'TypeScript' },
+  { icon: SiReact, name: 'React' },
+  { icon: SiTailwindcss, name: 'Tailwind' },
+  { icon: SiPython, name: 'Python' },
+  { icon: SiPostgresql, name: 'PostgreSQL' },
+  { icon: SiMongodb, name: 'MongoDB' },
+  { icon: SiFirebase, name: 'Firebase' },
+  { icon: SiGit, name: 'Git' },
+  { icon: SiGithub, name: 'GitHub' },
+  { icon: SiFigma, name: 'Figma' },
+  { icon: SiVercel, name: 'Vercel' },
+  { icon: SiDocker, name: 'Docker' },
+  { icon: SiAmazonwebservices, name: 'AWS' },
+];
 
 export function SkillsMarquee() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -216,14 +250,6 @@ export function SkillsMarquee() {
           font-family: 'Rajdhani', sans-serif;
         }
 
-        .digital-products-hero h1 {
-          background: linear-gradient(180deg, #fff 15%, #8d8d9c 90%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          filter: drop-shadow(0 6px 24px rgba(0,0,0,0.45));
-        }
-
         .digital-products-hero .glass-card {
           background: linear-gradient(180deg, rgba(52,36,130,0.42), rgba(10,10,32,0.6));
           border: 1px solid rgba(255,255,255,0.14);
@@ -231,14 +257,13 @@ export function SkillsMarquee() {
           box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.08);
         }
 
-        .digital-products-hero .btn-red {
-          background: var(--red);
-          box-shadow: 0 0 15px rgba(225, 29, 46, 0.3);
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
         }
 
-        .digital-products-hero .btn-blue {
-          background: var(--blue);
-          box-shadow: 0 0 18px rgba(29,63,196,0.5);
+        .animate-marquee-reverse {
+          animation: marquee-reverse 30s linear infinite;
         }
       `}</style>
 
@@ -257,27 +282,32 @@ export function SkillsMarquee() {
           </p>
         </div>
 
-        {/* CTA Card */}
-        <div className="glass-card w-full rounded-2xl p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">Ship Better, Faster</h2>
-            <p className="text-slate-300 font-semibold mt-2 text-lg">Your Product Team on Demand</p>
-          </div>
-          <div className="flex items-start gap-6">
-            <div className="flex-shrink-0 w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center border border-blue-500/30">
-              <PhoneCall className="text-blue-500 w-6 h-6 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
+        {/* CTA Card with Tech Marquee */}
+        <div className="glass-card w-full rounded-2xl p-6 md:p-10 overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/20 via-transparent to-slate-950/20 pointer-events-none z-10" />
+          
+          <div className="flex animate-marquee-reverse whitespace-nowrap">
+            {/* First Set */}
+            <div className="flex gap-12 md:gap-20 items-center px-4">
+              {techIcons.map((tech, idx) => (
+                <div key={`tech-1-${idx}`} className="flex flex-col items-center gap-2 group">
+                  <tech.icon className="w-10 h-10 md:w-12 md:h-12 text-slate-300 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
+                  <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
             </div>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-xl font-bold text-white">Book a Discovery Call</h3>
-                <p className="text-slate-400 text-sm">Strategy → Design → Build → Growth</p>
-              </div>
-              <a 
-                href="#contact" 
-                className="btn-blue inline-block px-8 py-3 rounded-md text-xs font-bold uppercase tracking-widest text-white transition-all hover:brightness-110 hover:-translate-y-0.5"
-              >
-                Get a Quote
-              </a>
+            {/* Second Set for Loop */}
+            <div className="flex gap-12 md:gap-20 items-center px-4">
+              {techIcons.map((tech, idx) => (
+                <div key={`tech-2-${idx}`} className="flex flex-col items-center gap-2 group">
+                  <tech.icon className="w-10 h-10 md:w-12 md:h-12 text-slate-300 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
+                  <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    {tech.name}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
