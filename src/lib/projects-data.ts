@@ -40,6 +40,26 @@ The backend is powered by Node.js and connects to a PostgreSQL database, ensurin
     githubUrl: "#",
   },
   {
+    id: "project-9",
+    slug: "nmbl-services",
+    title: "NMBL Services",
+    description: "A professional service management platform offering streamlined business solutions and modern UI.",
+    longDescription: `
+NMBL Services is a comprehensive platform designed to provide businesses with essential service management tools. Built with a focus on efficiency and modern design, it features a responsive interface and robust backend integration. 
+
+Key Features:
+- **Service Catalog:** Detailed listing of business services.
+- **Modern UI:** Clean, professional aesthetic using Tailwind CSS.
+- **High Performance:** Optimized for speed and SEO.
+- **Responsive:** Works flawlessly on all devices.
+    `,
+    tags: ["Next.js", "React", "Tailwind CSS", "SEO"],
+    imageUrls: ["/nmbl-services.png", "/nmbl-services 1.png", "/nmbl-services 2.png"],
+    imageHints: ["services landing", "service details", "business platform"],
+    liveUrl: "https://nmbl-services.vercel.app/",
+    githubUrl: "#",
+  },
+  {
     id: "project-8",
     slug: "pakabet-website",
     title: "Pakabet website",

@@ -1,3 +1,4 @@
+
 # Mushangi's Vision - Premium Portfolio
 
 A high-caliber developer portfolio featuring cutting-edge UI/UX interactions, built with Next.js 15.
@@ -8,7 +9,7 @@ A high-caliber developer portfolio featuring cutting-edge UI/UX interactions, bu
 - **Fintech Particle Network**: A full-screen, responsive canvas background with glowing nodes and geometric mesh connections that react to your cursor.
 - **Liquid Glass Navigation**: A premium floating header using "liquid frosted glass" effects with scroll-aware transitions and animated borders.
 - **Brutalist Marquee**: High-impact diagonal scrolling banner for services with play/pause controls.
-- **Project Showcase**: Features diverse projects including E-commerce platforms and the high-performance **Pakabet** betting site.
+- **Project Showcase**: Features diverse projects including E-commerce platforms, **Pakabet** betting site, and **NMBL Services**.
 - **Architectural Branding**: Modern logo design featuring stacked typography and rotating SVG elements.
 - **Dark/Light Mode**: Full theme support with a dedicated "Pill" style toggle system.
 
@@ -28,7 +29,7 @@ To push your changes to GitHub, run these commands in your project root:
 
 3. **Commit your changes**:
    ```bash
-   git commit -m "feat: add Pakabet project and refine premium UI interactions"
+   git commit -m "feat: add NMBL Services project and refine project layouts"
    ```
 
 4. **Link to GitHub** (Replace with your actual repo URL if different):
