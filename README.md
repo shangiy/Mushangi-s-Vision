@@ -5,11 +5,12 @@ A high-caliber developer portfolio featuring cutting-edge UI/UX interactions, bu
 
 ## Key Features
 
-- **Interactive Hero Section**: Features 3D portrait tilting, Scroll-Reactive Kinetic Outlines, and a sharp "Glitch" 3D extrusion effect on typography.
-- **Fintech Particle Network**: A full-screen, responsive canvas background with glowing nodes and geometric mesh connections that react to your cursor.
+- **Interactive Hero Section**: Features 3D portrait tilting with rigorous physical stress effects, Scroll-Reactive Kinetic Outlines, and a sharp "Glitch" 3D extrusion effect on typography.
+- **Fintech Particle Network**: A full-screen, responsive canvas background with glowing nodes and geometric mesh connections that react to your cursor and touch.
+- **WebGL Technology Marquee**: A high-performance, fluid hexagonal tech mesh background with interactive mouse ripples, showcasing a smooth-scrolling stack including **Supabase**, **Java**, **Next.js**, and more.
 - **Liquid Glass Navigation**: A premium floating header using "liquid frosted glass" effects with scroll-aware transitions and animated borders.
 - **Brutalist Marquee**: High-impact diagonal scrolling banner for services with play/pause controls.
-- **Project Showcase**: Features diverse projects including E-commerce platforms, **Pakabet** betting site, and **NMBL Services**.
+- **Project Showcase**: Features diverse projects including E-commerce platforms, **Pakabet** betting site, **NMBL Services**, and more.
 - **Architectural Branding**: Modern logo design featuring stacked typography and rotating SVG elements.
 - **Dark/Light Mode**: Full theme support with a dedicated "Pill" style toggle system.
 
@@ -29,7 +30,7 @@ To push your changes to GitHub, run these commands in your project root:
 
 3. **Commit your changes**:
    ```bash
-   git commit -m "feat: add NMBL Services project and refine project layouts"
+   git commit -m "feat: add NMBL Services project and refine WebGL technology marquee"
    ```
 
 4. **Link to GitHub** (Replace with your actual repo URL if different):
