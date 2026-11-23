@@ -238,7 +238,7 @@ export function SkillsMarquee() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-slate-950 px-4 py-24"
+      className="relative w-full min-h-[400px] md:min-h-[500px] flex flex-col items-center justify-center overflow-hidden bg-slate-950 px-4 py-12 md:py-20"
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
@@ -274,36 +274,36 @@ export function SkillsMarquee() {
         data-ready="true"
       />
 
-      <div className="digital-products-hero relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center gap-16">
+      <div className="digital-products-hero relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center gap-8 md:gap-12">
         {/* Hero Content */}
-        <div className="text-center space-y-4">
-          <p className="text-cyan-400 font-medium tracking-[0.2em] uppercase text-sm animate-pulse">
+        <div className="text-center space-y-2">
+          <p className="text-cyan-400 font-medium tracking-[0.2em] uppercase text-xs md:text-sm animate-pulse">
             Design • Build • Grow
           </p>
         </div>
 
         {/* CTA Card with Tech Marquee */}
-        <div className="glass-card w-full rounded-2xl p-6 md:p-10 overflow-hidden relative">
+        <div className="glass-card w-full rounded-2xl p-4 md:p-8 overflow-hidden relative">
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/20 via-transparent to-slate-950/20 pointer-events-none z-10" />
           
           <div className="flex animate-marquee-reverse whitespace-nowrap">
             {/* First Set */}
-            <div className="flex gap-12 md:gap-20 items-center px-4">
+            <div className="flex gap-8 md:gap-16 items-center px-4">
               {techIcons.map((tech, idx) => (
                 <div key={`tech-1-${idx}`} className="flex flex-col items-center gap-2 group">
-                  <tech.icon className="w-10 h-10 md:w-12 md:h-12 text-slate-300 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
-                  <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-slate-300 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
+                  <span className="text-[9px] md:text-xs font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                     {tech.name}
                   </span>
                 </div>
               ))}
             </div>
             {/* Second Set for Loop */}
-            <div className="flex gap-12 md:gap-20 items-center px-4">
+            <div className="flex gap-8 md:gap-16 items-center px-4">
               {techIcons.map((tech, idx) => (
                 <div key={`tech-2-${idx}`} className="flex flex-col items-center gap-2 group">
-                  <tech.icon className="w-10 h-10 md:w-12 md:h-12 text-slate-300 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
-                  <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  <tech.icon className="w-8 h-8 md:w-10 md:h-10 text-slate-300 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]" />
+                  <span className="text-[9px] md:text-xs font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                     {tech.name}
                   </span>
                 </div>
