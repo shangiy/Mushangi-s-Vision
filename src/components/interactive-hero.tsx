@@ -160,6 +160,7 @@ export function InteractiveHero() {
       if (isPaused) return;
 
       const { innerWidth, innerHeight } = window;
+      // Normalizing to -1 to 1 range
       const x = (e.clientX - innerWidth / 2) / (innerWidth / 2);
       const y = (e.clientY - innerHeight / 2) / (innerHeight / 2);
       
@@ -183,10 +184,14 @@ export function InteractiveHero() {
     };
   }, [isPaused]);
 
-  const tiltX = coords.y * 15;
-  const tiltY = coords.x * -15;
-  const translateX = coords.x * 20;
-  const translateY = coords.y * 20;
+  // Rigorous Physics-based movement calculations
+  const tiltX = coords.y * 40; // High amplitude tilt for "stress"
+  const tiltY = coords.x * -40;
+  const translateX = coords.x * 80; // High amplitude translation
+  const translateY = coords.y * 80;
+  const skewX = coords.x * 12; // Skewing for "paper stress" feel
+  const skewY = coords.y * 12;
+  const scale = 1 + Math.abs(coords.x * 0.1) + Math.abs(coords.y * 0.1); // Dynamic scaling for "pressure"
 
   const dist = Math.sqrt(Math.pow(coords.x - (-1), 2) + Math.pow(coords.y - 1, 2));
   const maxDist = 2.82;
@@ -196,7 +201,7 @@ export function InteractiveHero() {
     <section 
       ref={containerRef}
       className="relative h-screen w-full overflow-hidden bg-slate-950 flex items-center cursor-default select-none"
-      style={{ perspective: '1000px' }}
+      style={{ perspective: '1200px' }}
     >
       {/* Particle Network Canvas Background */}
       <ParticleBackground />
@@ -220,15 +225,16 @@ export function InteractiveHero() {
         {/* Left Side (Empty or for future text) */}
         <div className="hidden md:block"></div>
 
-        {/* Right Side: Interactive 3D Portrait */}
+        {/* Right Side: Interactive 3D Portrait - Rigorous Movement */}
         <div className="flex justify-center md:justify-end">
           <div 
-            className="relative w-full max-w-[280px] md:max-w-[400px] transition-transform duration-200 ease-out will-change-transform"
+            className="relative w-full max-w-[280px] md:max-w-[420px] transition-transform duration-150 ease-out will-change-transform"
             style={{
-              transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${translateX}px) translateY(${translateY}px)`,
+              transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateX(${translateX}px) translateY(${translateY}px) skew(${skewX}deg, ${skewY}deg) scale(${scale})`,
+              filter: `drop-shadow(${coords.x * -30}px ${coords.y * 30}px 40px rgba(0,0,0,0.6))`
             }}
           >
-            <div className="relative aspect-[3/4] w-full drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)]">
+            <div className="relative aspect-[3/4] w-full">
               <Image
                 src="/hero-image.png"
                 alt="Mushangi Patrick Portrait"
