@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useEffect, useRef } from 'react';
@@ -256,10 +255,6 @@ export function SkillsMarquee() {
           <p className="text-cyan-400 font-medium tracking-[0.2em] uppercase text-sm animate-pulse">
             Design • Build • Grow
           </p>
-          <h1 className="text-5xl md:text-8xl font-bold uppercase leading-[0.9] tracking-tight">
-            Digital Products <br />
-            <span className="text-white">That Perform</span>
-          </h1>
         </div>
 
         {/* CTA Card */}
