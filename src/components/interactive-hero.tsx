@@ -33,7 +33,7 @@ function ParticleBackground() {
         this.y = Math.random() * h;
         this.vx = (Math.random() - 0.5) * 0.4;
         this.vy = (Math.random() - 0.5) * 0.4;
-        this.size = Math.random() * 1.5 + 0.5;
+        this.size = Math.random() * 2 + 0.5; // Slightly larger particles
       }
 
       update() {
@@ -45,9 +45,9 @@ function ParticleBackground() {
 
       draw() {
         if (!ctx) return;
-        ctx.shadowBlur = 5;
+        ctx.shadowBlur = 8; // More glow
         ctx.shadowColor = 'white';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Whiter particles
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -90,8 +90,9 @@ function ParticleBackground() {
 
           if (dist < connectionDist) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.15 * (1 - dist / connectionDist)})`;
-            ctx.lineWidth = 0.5;
+            // Thicker and whiter lines (alpha increased from 0.15 to 0.4)
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - dist / connectionDist)})`;
+            ctx.lineWidth = 1.0; // Increased from 0.5
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.stroke();
@@ -105,8 +106,9 @@ function ParticleBackground() {
 
         if (mdist < mouseDist) {
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(255, 255, 255, ${0.3 * (1 - mdist / mouseDist)})`;
-          ctx.lineWidth = 0.8;
+          // Thicker and whiter lines to mouse (alpha increased from 0.3 to 0.7)
+          ctx.strokeStyle = `rgba(255, 255, 255, ${0.7 * (1 - mdist / mouseDist)})`;
+          ctx.lineWidth = 1.5; // Increased from 0.8
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.stroke();
