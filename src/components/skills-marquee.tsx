@@ -16,7 +16,9 @@ import {
   SiFigma, 
   SiVercel, 
   SiDocker, 
-  SiAmazonwebservices 
+  SiAmazonwebservices,
+  SiSupabase,
+  SiJava
 } from '@icons-pack/react-simple-icons';
 
 /**
@@ -40,6 +42,8 @@ const techIcons = [
   { icon: SiVercel, name: 'Vercel' },
   { icon: SiDocker, name: 'Docker' },
   { icon: SiAmazonwebservices, name: 'AWS' },
+  { icon: SiSupabase, name: 'Supabase' },
+  { icon: SiJava, name: 'Java' },
 ];
 
 export function SkillsMarquee() {
@@ -238,7 +242,7 @@ export function SkillsMarquee() {
   return (
     <section 
       ref={containerRef}
-      className="relative w-full min-h-[400px] md:min-h-[500px] flex flex-col items-center justify-center overflow-hidden bg-slate-950 px-4 py-12 md:py-20"
+      className="relative w-full min-h-[400px] md:min-h-[450px] flex flex-col items-center justify-center overflow-hidden bg-slate-950 px-4 py-8 md:py-12"
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap');
