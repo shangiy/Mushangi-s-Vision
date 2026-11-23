@@ -31,27 +31,29 @@ function ParticleBackground() {
       constructor() {
         this.x = Math.random() * w;
         this.y = Math.random() * h;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.size = Math.random() * 2 + 0.5; // Slightly larger particles
+        // Increased velocity for more noticeable "random" movement
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.size = Math.random() * 2 + 1; // Slightly larger particles
       }
 
       update() {
         this.x += this.vx;
         this.y += this.vy;
+        // Bounce off bounds
         if (this.x < 0 || this.x > w) this.vx *= -1;
         if (this.y < 0 || this.y > h) this.vy *= -1;
       }
 
       draw() {
         if (!ctx) return;
-        ctx.shadowBlur = 8; // More glow
+        ctx.shadowBlur = 10;
         ctx.shadowColor = 'white';
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.8)'; // Whiter particles
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
-        ctx.shadowBlur = 0; // reset for lines
+        ctx.shadowBlur = 0;
       }
     }
 
@@ -62,7 +64,7 @@ function ParticleBackground() {
       canvas.width = w;
       canvas.height = h;
       particles = [];
-      const density = (w * h) / 9000;
+      const density = (w * h) / 8000;
       const count = Math.min(Math.floor(density), 150);
       for (let i = 0; i < count; i++) {
         particles.push(new Particle());
@@ -73,7 +75,7 @@ function ParticleBackground() {
       if (!ctx) return;
       ctx.clearRect(0, 0, w, h);
 
-      const connectionDist = 120;
+      const connectionDist = 140;
       const mouseDist = 200;
 
       for (let i = 0; i < particles.length; i++) {
@@ -90,9 +92,8 @@ function ParticleBackground() {
 
           if (dist < connectionDist) {
             ctx.beginPath();
-            // Thicker and whiter lines (alpha increased from 0.15 to 0.4)
             ctx.strokeStyle = `rgba(255, 255, 255, ${0.4 * (1 - dist / connectionDist)})`;
-            ctx.lineWidth = 1.0; // Increased from 0.5
+            ctx.lineWidth = 1.0;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);
             ctx.stroke();
@@ -106,9 +107,8 @@ function ParticleBackground() {
 
         if (mdist < mouseDist) {
           ctx.beginPath();
-          // Thicker and whiter lines to mouse (alpha increased from 0.3 to 0.7)
           ctx.strokeStyle = `rgba(255, 255, 255, ${0.7 * (1 - mdist / mouseDist)})`;
-          ctx.lineWidth = 1.5; // Increased from 0.8
+          ctx.lineWidth = 1.5;
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.stroke();
@@ -162,7 +162,6 @@ export function InteractiveHero() {
       if (isPaused) return;
 
       const { innerWidth, innerHeight } = window;
-      // Normalizing to -1 to 1 range
       const x = (e.clientX - innerWidth / 2) / (innerWidth / 2);
       const y = (e.clientY - innerHeight / 2) / (innerHeight / 2);
       
@@ -186,14 +185,14 @@ export function InteractiveHero() {
     };
   }, [isPaused]);
 
-  // Rigorous Physics-based movement calculations
-  const tiltX = coords.y * 40; // High amplitude tilt for "stress"
+  // Movement physics for portrait
+  const tiltX = coords.y * 40;
   const tiltY = coords.x * -40;
-  const translateX = coords.x * 80; // High amplitude translation
+  const translateX = coords.x * 80;
   const translateY = coords.y * 80;
-  const skewX = coords.x * 12; // Skewing for "paper stress" feel
+  const skewX = coords.x * 12;
   const skewY = coords.y * 12;
-  const scale = 1 + Math.abs(coords.x * 0.1) + Math.abs(coords.y * 0.1); // Dynamic scaling for "pressure"
+  const scale = 1 + Math.abs(coords.x * 0.1) + Math.abs(coords.y * 0.1);
 
   const dist = Math.sqrt(Math.pow(coords.x - (-1), 2) + Math.pow(coords.y - 1, 2));
   const maxDist = 2.82;
@@ -205,29 +204,23 @@ export function InteractiveHero() {
       className="relative h-screen w-full overflow-hidden bg-slate-950 flex items-center cursor-default select-none"
       style={{ perspective: '1200px' }}
     >
-      {/* Particle Network Canvas Background */}
       <ParticleBackground />
 
-      {/* Minimalist Header Overlay */}
       <div className="absolute top-8 right-8 z-50 text-right">
         <h2 className="font-headline text-xs md:text-sm font-bold tracking-[0.3em] text-slate-400 uppercase">
           Portfolio | 2026
         </h2>
       </div>
 
-      {/* Decorative Background Text - Animated Diagonally */}
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none overflow-hidden z-10">
         <h1 className="font-headline text-[20vw] font-black leading-none text-white select-none whitespace-nowrap animate-diagonal-scroll">
           MUSHANGI P
         </h1>
       </div>
 
-      {/* Content Grid */}
       <div className="container relative z-20 mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 items-center h-full">
-        {/* Left Side (Empty or for future text) */}
         <div className="hidden md:block"></div>
 
-        {/* Right Side: Interactive 3D Portrait - Rigorous Movement */}
         <div className="flex justify-center md:justify-end">
           <div 
             className="relative w-full max-w-[280px] md:max-w-[420px] transition-transform duration-150 ease-out will-change-transform"
@@ -249,19 +242,16 @@ export function InteractiveHero() {
         </div>
       </div>
 
-      {/* Bottom UI Elements */}
       <div className="absolute bottom-12 left-8 z-50">
         <div className="flex flex-col gap-2">
           <span className="font-headline text-xl font-bold text-white uppercase tracking-widest">Patrick Mushangi</span>
           
           <div className="relative">
-            {/* Back Layer (Solid Slate) */}
             <div className="flex flex-col leading-none text-slate-300">
               <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider">FULL-STACK DEVELOPER &</span>
               <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
             
-            {/* Front Layer (Kinetic Outline - Lime Green) */}
             <div 
               className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none transition-[webkit-text-stroke-width] duration-75"
               style={{ 
@@ -274,7 +264,6 @@ export function InteractiveHero() {
               <span className="font-body text-3xl md:text-7xl font-bold uppercase tracking-wider mt-1">WEBAPP DESIGNER</span>
             </div>
 
-            {/* Third Layer (Slightly offset white stroke for extra depth/glitch feel) */}
             <div 
               className="absolute inset-0 flex flex-col leading-none select-none pointer-events-none opacity-30 transition-[webkit-text-stroke-width] duration-75"
               style={{ 
@@ -290,7 +279,6 @@ export function InteractiveHero() {
         </div>
       </div>
 
-      {/* Motion Toggle Button */}
       <div className="fixed bottom-8 right-8 z-[100]">
         <Button
           variant="outline"
@@ -304,7 +292,6 @@ export function InteractiveHero() {
         </Button>
       </div>
 
-      {/* Gradient Vignette for Depth */}
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-30" />
     </section>
   );
